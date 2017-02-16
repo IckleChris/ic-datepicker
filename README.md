@@ -29,7 +29,7 @@ import { IcDatepickerModule } from 'ic-datepicker';
 Use the `<ic-datepicker-component/>` element, optionally providing an `IcDatepickerOptionsInterface` instance containing overriding options ([see defaults](https://icklechris.github.io/ic-datepicker/options)).
 
 ```
-import { IcDatepickerOptionsInterface } from 'ic-datepicker';
+import { IcDatepickerOptionsInterface } from 'ic-datepicker/dist';
 
 @Component({
   selector: 'my-example-component',

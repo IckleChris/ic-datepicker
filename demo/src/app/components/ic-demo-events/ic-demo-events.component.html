@@ -1,0 +1,23 @@
+<div class="container-fluid api-doc-page">
+  <div class="row">
+    <div class="col-md-3 left-col">
+      <div class="btn-group-vertical">
+        <a
+          *ngFor="let event of events"
+          [ngClass]="{ active: event.label === activeEvent.label }"
+          [routerLink]="['/events', event.label]"
+          class="btn btn-block btn-link text-left"
+        >
+          {{ event.label }}
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-9 right-col">
+      <markdown-to-html
+        *ngIf="activeEvent"
+        [src]="getMarkdownPathByEvent(activeEvent)"
+      ></markdown-to-html>
+    </div>
+  </div>
+</div>

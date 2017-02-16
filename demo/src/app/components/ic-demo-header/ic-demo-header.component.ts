@@ -21,6 +21,10 @@ export class IcDemoHeaderComponent {
       routerLink: '/options'
     },
     {
+      label: 'Events',
+      routerLink: '/events'
+    },
+    {
       label: 'Interfaces',
       routerLink: '/interfaces'
     }

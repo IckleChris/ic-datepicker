@@ -14,6 +14,7 @@ import { IcDemoOptionsComponent } from './components/ic-demo-options/ic-demo-opt
 import { CommonModule } from "@angular/common";
 import { DatepickerConfigFormComponent } from './components/ic-demo-example/components/datepicker-config-form/datepicker-config-form.component';
 import { IcInterfacesComponent } from './components/ic-interfaces/ic-interfaces.component';
+import { IcDemoEventsComponent } from './components/ic-demo-events/ic-demo-events.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { IcInterfacesComponent } from './components/ic-interfaces/ic-interfaces.
     IcDemoExampleComponent,
     IcDemoOptionsComponent,
     DatepickerConfigFormComponent,
-    IcInterfacesComponent
+    IcInterfacesComponent,
+    IcDemoEventsComponent
   ],
   imports: [
     BrowserModule,
