@@ -1,0 +1,35 @@
+@import "../../../styles/variables";
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #505050;
+  margin-bottom: 2.5rem;
+}
+
+.separator {
+  margin: 1.5rem 0;
+
+  i {
+    color: #808080;
+  }
+}
+
+.install-command {
+  .command {
+    background: #505050;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.code {
+  pre {
+    color: #fff;
+    background: #505050;
+    padding: 0.5rem 1rem;
+    text-align: left;
+    display: inline-block;
+    border-radius: 0.2rem;
+    margin: 0;
+  }
+}
