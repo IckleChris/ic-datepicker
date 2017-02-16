@@ -1,10 +1,13 @@
-(function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@angular/forms'), require('moment')) :
-    typeof define === 'function' && define.amd ? define(['exports', '@angular/common', '@angular/core', '@angular/forms', 'moment'], factory) :
-    (factory((global.ng = global.ng || {}, global.ng.icDatepicker = global.ng.icDatepicker || {}),global['ng-common'],global.ng.core,global['ng-forms'],global.Moment));
-}(this, (function (exports,_angular_common,_angular_core,_angular_forms,Moment) { 'use strict';
+'use strict';
 
-Moment = 'default' in Moment ? Moment['default'] : Moment;
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var _angular_common = require('@angular/common');
+var _angular_core = require('@angular/core');
+var _angular_forms = require('@angular/forms');
+var Moment = _interopDefault(require('moment'));
 
 var defaultDayQuickOptions = [
     {
@@ -635,7 +638,3 @@ exports.IcDatepickerModule = __decorate([
         providers: [exports.IcDatepickerService]
     })
 ], exports.IcDatepickerModule);
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));

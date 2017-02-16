@@ -12,7 +12,7 @@ npm install -S ic-datepicker
 
 Import the `IcDatepickerModule` into your module;
 
-```
+```typescript
 // app.module.ts
 
 import { IcDatepickerModule } from 'ic-datepicker';
@@ -28,7 +28,7 @@ import { IcDatepickerModule } from 'ic-datepicker';
 
 Use the `<ic-datepicker-component/>` element, optionally providing an `IcDatepickerOptionsInterface` instance containing overriding options ([see defaults](https://icklechris.github.io/ic-datepicker/options)).
 
-```
+```typescript
 import { IcDatepickerOptionsInterface } from 'ic-datepicker/dist';
 
 @Component({

@@ -1,6 +1,6 @@
 {
   "name": "ic-datepicker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Datepicker Component",
   "main": "dist/bundles/ic-datepicker.umd.js",
   "module": "dist/index.js",
@@ -14,7 +14,7 @@
     "protractor": "protractor",
     "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.js dist/index.js.map dist/LICENCE dist/README.md",
     "bundling": "rollup -c",
-    "minify": "uglifyjs dist/bundles/ic-datepicker.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/ic-datepicker.umd.min.js",
+    "minify": "uglifyjs dist/bundles/ic-datepicker.cjs.js --screw-ie8 --compress --mangle --comments --output dist/bundles/ic-datepicker.cjs.min.js",
     "copy": "copyfiles LICENSE README.md dist",
     "build": "npm run cleanup && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy",
     "gh-pages": "git subtree push --prefix demo/dist origin gh-pages"
