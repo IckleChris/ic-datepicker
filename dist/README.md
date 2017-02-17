@@ -15,7 +15,7 @@ Import the `IcDatepickerModule` into your module;
 ```typescript
 // app.module.ts
 
-import { IcDatepickerModule } from 'ic-datepicker';
+import { IcDatepickerModule } from 'ic-datepicker/dist';
 
 @NgModule({
   imports: [
