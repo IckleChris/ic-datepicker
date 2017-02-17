@@ -1,8 +1,8 @@
 export default {
   entry: 'dist/index.js',
-  dest: 'dist/bundles/ic-datepicker.cjs.js',
+  dest: 'dist/bundles/ic-datepicker.bundle.js',
   sourceMap: false,
-  format: 'cjs',
+  format: 'umd',
   moduleName: 'ng.icDatepicker',
   globals: {
     '@angular/core': 'ng.core',

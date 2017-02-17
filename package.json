@@ -1,9 +1,10 @@
 {
   "name": "ic-datepicker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Datepicker Component",
-  "main": "dist/bundles/ic-datepicker.umd.js",
+  "main": "dist/bundles/ic-datepicker.bundle.js",
   "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "lint": "tslint \"src/**/*.ts\"",
     "test": "karma start karma.conf.js",
@@ -14,7 +15,7 @@
     "protractor": "protractor",
     "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.js dist/index.js.map dist/LICENCE dist/README.md",
     "bundling": "rollup -c",
-    "minify": "uglifyjs dist/bundles/ic-datepicker.cjs.js --screw-ie8 --compress --mangle --comments --output dist/bundles/ic-datepicker.cjs.min.js",
+    "minify": "uglifyjs dist/bundles/ic-datepicker.bundle.js --screw-ie8 --compress --mangle --comments --output dist/bundles/ic-datepicker.bundle.min.js",
     "copy": "copyfiles LICENSE README.md dist",
     "build": "npm run cleanup && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy",
     "gh-pages": "git subtree push --prefix demo/dist origin gh-pages"
@@ -40,7 +41,6 @@
     "@angular/common": "^2.4.3",
     "@angular/core": "^2.4.0",
     "@angular/forms": "^2.4.4",
-    "@types/moment": "^2.13.0",
     "moment": "^2.17.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.0.1",
