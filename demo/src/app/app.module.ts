@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
-import { IcDatepickerModule } from 'ic-datepicker/dist';
+import { IcDatepickerModule } from 'ic-datepicker';
 
 import { AppComponent } from './app.component';
 import { IcDemoHeaderComponent } from './components/ic-demo-header/ic-demo-header.component';
