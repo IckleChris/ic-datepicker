@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import Moment from 'moment';
-import { IcDatepickerOptionsInterface } from "ic-datepicker";
+import { IcDatepickerOptionsInterface } from "ic-datepicker/dist";
 
 @Component({
   selector: 'ic-ic-demo-example',
