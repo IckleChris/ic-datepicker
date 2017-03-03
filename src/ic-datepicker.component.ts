@@ -103,6 +103,7 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
               [hidden]="option.isDisabled"                
               (click)="setSelectedDay(option.datepickerDay, $event)"
               [ngClass]="{ selected: option.date.isSame(selectedDay.moment, 'day') }"
+              type="button"
               class="cell quick-option"
             >
               {{ option.label }}
@@ -112,7 +113,7 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
 
         <div [style.display]="yearSelectMode ? 'block' : 'none'" class="year-list">
           <div class="ic-datepicker-dates">
-            <button (click)="showYears('previous')" class="cell toggle-years previous">
+            <button (click)="showYears('previous')" type="button" class="cell toggle-years previous">
               <span>
                 <i [ngClass]="mergedOptions.icons.previousYears"></i>            
               </span>
@@ -122,12 +123,13 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
               *ngFor="let year of yearOptions"
               (click)="setSelectedYear(year)"
               [ngClass]="{ 'this-year': year.isThisYear, selected: year.isSelected }" 
+              type="button"
               class="cell date year"
             >
               {{ year.formatted }}              
             </button>
             
-            <button (click)="showYears('next')" class="cell toggle-years next">
+            <button (click)="showYears('next')" type="button" class="cell toggle-years next">
               <span>
                 <i [ngClass]="mergedOptions.icons.nextYears"></i>            
               </span>
