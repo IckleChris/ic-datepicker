@@ -1,14 +1,6 @@
 'use strict';
 
 const path = require('path');
-const ts = require('rollup-plugin-typescript');
-const buble = require('rollup-plugin-buble');
-const nodeResolve = require('rollup-plugin-node-resolve');
-const angular = require('rollup-plugin-angular');
-const commonjs = require('rollup-plugin-commonjs');
-const alias = require('rollup-plugin-alias');
-const progress = require('rollup-plugin-progress');
-
 
 module.exports = (config) => {
   const configuration = {
@@ -17,7 +9,7 @@ module.exports = (config) => {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-rollup-plugin'),
+      require('karma-webpack'),
       require('karma-spec-reporter'),
     ],
     reporters: ['spec'],
@@ -30,34 +22,20 @@ module.exports = (config) => {
       showSpecTiming: true
     },
     files: [
-      { pattern: 'public/**/*', watched: false, included: false, served: true },
       'test.ts'
     ],
     preprocessors: {
-      'test.ts': ['rollup']
+      'test.ts': ['webpack']
     },
-    rollupPreprocessor: {
-      context: 'this',
-      format: 'iife',
-      plugins: [
-        angular(),
-        ts({
-          typescript: require('typescript')
-        }),
-        alias({
-          '@angular/core/testing': path.resolve(__dirname, 'node_modules/@angular/core/testing/index.js'),
-          '@angular/platform-browser-dynamic/testing': path.resolve(__dirname, 'node_modules/@angular/platform-browser-dynamic/testing/index.js'),
-          '@angular/compiler/testing': path.resolve(__dirname, 'node_modules/@angular/compiler/testing/index.js'),
-          '@angular/platform-browser/testing': path.resolve(__dirname, 'node_modules/@angular/platform-browser/testing/index.js'),
-          '@angular/router/testing': path.resolve(__dirname, 'node_modules/@angular/router/testing/index.js'),
-          '@angular/common/testing': path.resolve(__dirname, 'node_modules/@angular/core/testing/index.js'),
-          '@angular/http/testing': path.resolve(__dirname, 'node_modules/@angular/http/testing/index.js'),
-        }),
-        commonjs(),
-        nodeResolve({ jsnext: true, main: true, browser: true }),
-        buble(),
-        progress()
-      ]
+    webpack: {
+      resolve: {
+        extensions: ['.ts', '.tsx', '.js']
+      },
+      module: {
+        loaders: [
+          { test: /\.tsx?$/, loader: 'ts-loader' }
+        ]
+      }
     },
     port: 9876,
     colors: true,
