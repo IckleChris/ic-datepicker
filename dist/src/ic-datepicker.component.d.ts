@@ -1,7 +1,7 @@
 /// <reference types="moment" />
 import { OnInit, Renderer, OnDestroy, ElementRef, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import Moment from 'moment';
+import * as Moment from 'moment';
 import { IcDatepickerOptions } from './models/ic-datepicker-options';
 import { IcDatepickerDay } from './interfaces/ic-datepicker-day';
 import { IcDatepickerOptionsInterface } from './interfaces/ic-datepicker-options';

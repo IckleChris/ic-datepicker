@@ -1,5 +1,5 @@
 /// <reference types="moment" />
-import Moment from 'moment';
+import * as Moment from 'moment';
 export interface IcDatepickerDay {
     classes?: string[];
     formattedDate?: string | null;

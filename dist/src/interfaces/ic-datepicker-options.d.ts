@@ -1,5 +1,5 @@
 /// <reference types="moment" />
-import Moment from 'moment';
+import * as Moment from 'moment';
 import { IcDatepickerQuickOption } from './ic-datepicker-quick-option';
 import { IcCustomDayClass } from "./ic-custom-day-class";
 export interface IcDatepickerOptionsInterface {

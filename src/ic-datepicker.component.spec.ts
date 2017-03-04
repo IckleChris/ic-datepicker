@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import Moment from 'moment';
+import * as Moment from 'moment';
 
 import { IcDatepickerComponent } from './ic-datepicker.component';
 import { IcDatepickerModule } from './ic-datepicker.module';

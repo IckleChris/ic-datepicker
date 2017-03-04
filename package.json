@@ -14,7 +14,7 @@
     "pree2e": "npm run webdriver:update -- --standalone",
     "protractor": "protractor",
     "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.js dist/index.js.map dist/LICENCE dist/README.md",
-    "bundling": "rollup -c",
+    "bundling": "webpack",
     "minify": "uglifyjs dist/bundles/ic-datepicker.bundle.js --screw-ie8 --compress --mangle --comments --output dist/bundles/ic-datepicker.bundle.min.js",
     "copy": "copyfiles LICENSE README.md dist",
     "build": "npm run cleanup && ngc -p tsconfig.build.json && npm run bundling && npm run minify && npm run copy",
@@ -71,6 +71,7 @@
     "rollup-plugin-typescript": "^0.8.1",
     "tslint": "^4.4.2",
     "typescript": "^2.0.10",
-    "uglify-js": "^2.7.5"
+    "uglify-js": "^2.7.5",
+    "webpack": "^2.2.1"
   }
 }

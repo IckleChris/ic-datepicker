@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import Moment from 'moment';
+import * as Moment from 'moment';
 
 import { IcDatepickerService } from './ic-datepicker.service';
 import { IcDatepickerOptions } from '../models/ic-datepicker-options';

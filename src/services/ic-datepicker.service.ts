@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import Moment from 'moment';
+import * as Moment from 'moment';
 import { IcDatepickerDay } from '../interfaces/ic-datepicker-day';
 import { IcDatepickerOptions } from '../models/ic-datepicker-options';
 import { IcCustomDayClass } from "../interfaces/ic-custom-day-class";

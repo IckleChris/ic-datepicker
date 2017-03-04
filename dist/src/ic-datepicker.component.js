@@ -12,7 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 import { Component, HostListener, Input, forwardRef, ViewEncapsulation, Renderer, ElementRef, Output, EventEmitter, Inject } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import Moment from 'moment';
+import * as Moment from 'moment';
 import { IcDatepickerOptions } from './models/ic-datepicker-options';
 import { IcDatepickerService } from './services/ic-datepicker.service';
 var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {

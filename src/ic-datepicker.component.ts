@@ -3,7 +3,7 @@ import {
   OnDestroy, ElementRef, Output, EventEmitter, Inject, OnChanges, SimpleChanges
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import Moment from 'moment';
+import * as Moment from 'moment';
 
 import { IcDatepickerOptions } from './models/ic-datepicker-options';
 import { IcDatepickerDay } from './interfaces/ic-datepicker-day';

@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Injectable } from '@angular/core';
-import Moment from 'moment';
+import * as Moment from 'moment';
 var IcDatepickerService = (function () {
     function IcDatepickerService() {
     }

@@ -1,5 +1,5 @@
 /// <reference types="moment" />
-import Moment from 'moment';
+import * as Moment from 'moment';
 import { IcDatepickerDay } from '../interfaces/ic-datepicker-day';
 import { IcDatepickerOptions } from '../models/ic-datepicker-options';
 export declare class IcDatepickerService {

@@ -1,4 +1,4 @@
-import Moment from 'moment';
+import * as Moment from 'moment';
 
 import { IcDatepickerOptionsInterface } from '../interfaces/ic-datepicker-options';
 import { IcDatepickerQuickOption } from '../interfaces/ic-datepicker-quick-option';
