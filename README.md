@@ -26,7 +26,7 @@ import { IcDatepickerModule } from 'ic-datepicker/dist';
 
 ## Usage
 
-Use the `<ic-datepicker-component/>` element, optionally providing an `IcDatepickerOptionsInterface` instance containing overriding options ([see defaults](https://icklechris.github.io/ic-datepicker/options)).
+Use the `<ic-datepicker/>` element, optionally providing an `IcDatepickerOptionsInterface` instance containing overriding options ([see defaults](https://icklechris.github.io/ic-datepicker/options)).
 
 ```typescript
 import { IcDatepickerOptionsInterface } from 'ic-datepicker/dist';
@@ -35,7 +35,7 @@ import { IcDatepickerOptionsInterface } from 'ic-datepicker/dist';
   selector: 'my-example-component',
   template: `
     <form [formGroup]="exampleForm">
-      <ic-datepicker-component formControlName="datepicker" options="datepickerOptions"></ic-datepicker-component>
+      <ic-datepicker formControlName="datepicker" options="datepickerOptions"></ic-datepicker>
     </form>
   `,
   styles: ``

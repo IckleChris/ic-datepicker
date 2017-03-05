@@ -16,7 +16,7 @@ Event called whenever the rendered month is changed. `previous` and `value` are 
 ### Example
 
 ```html
-<ic-datepicker-component (monthChange)="onDatepickerMonthChange($event)"></ic-datepicker-component>
+<ic-datepicker (monthChange)="onDatepickerMonthChange($event)"></ic-datepicker>
 ```
 
 ```typescript

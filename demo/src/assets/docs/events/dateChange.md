@@ -16,7 +16,7 @@ Event called whenever a day is selected. The type of `previous` and `value` are 
 ### Example ( `modelType` = `Moment` )
 
 ```html
-<ic-datepicker-component (dateChange)="onDatepickerDateChange($event)"></ic-datepicker-component>
+<ic-datepicker (dateChange)="onDatepickerDateChange($event)"></ic-datepicker>
 ```
 
 ```typescript

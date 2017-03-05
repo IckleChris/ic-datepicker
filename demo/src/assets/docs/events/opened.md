@@ -7,5 +7,5 @@ Event called whenever the datepicker popup is opened. Provides no event data.
 ### Example
 
 ```html
-<ic-datepicker-component (opened)="onDatepickerOpened()"></ic-datepicker-component>
+<ic-datepicker (opened)="onDatepickerOpened()"></ic-datepicker>
 ```
