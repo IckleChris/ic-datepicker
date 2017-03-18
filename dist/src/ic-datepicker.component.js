@@ -66,6 +66,7 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
             this.setCurrentPeriod(this.currentPeriod);
             this.selectedDay = this.icDatepickerService.buildDatepickerDay(this.selectedDay.moment, this.mergedOptions, this.selectedDay.moment);
             this.emitModelChange(this.selectedDay);
+            this.toggleMonthToggles(this.currentPeriod);
         }
     };
     /**

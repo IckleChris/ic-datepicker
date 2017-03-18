@@ -423,6 +423,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
         this.selectedDay.moment
       );
       this.emitModelChange(this.selectedDay);
+      this.toggleMonthToggles(this.currentPeriod);
     }
   }
 
