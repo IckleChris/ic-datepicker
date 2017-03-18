@@ -10,7 +10,7 @@
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor",
     "copy": "copyfiles -u 1 src/404.html dist",
-    "build": "ng build --prod --base-href=\"https://icklechris.github.io/ic-datepicker/\" && npm run copy"
+    "build": "ng build --prod --aot --base-href=\"https://icklechris.github.io/ic-datepicker/\" && npm run copy"
   },
   "private": true,
   "dependencies": {
@@ -25,8 +25,8 @@
     "bootstrap": "^4.0.0-alpha.6",
     "copyfiles": "^1.2.0",
     "core-js": "^2.4.1",
-    "ic-datepicker": "0.0.5",
-    "ng2-markdown-to-html": "0.0.7",
+    "ic-datepicker": "0.0.6",
+    "ng2-markdown-to-html": "^1.1.0",
     "prism-themes": "git+https://github.com/PrismJS/prism-themes.git",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
