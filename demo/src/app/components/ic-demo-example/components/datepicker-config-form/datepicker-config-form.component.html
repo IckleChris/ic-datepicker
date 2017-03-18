@@ -38,6 +38,16 @@
     </label>
   </div>
 
+  <div class="form-group">
+    <label *ngFor="let iconSet of iconSets" class="custom-control custom-radio">
+      <input formControlName="iconSet" [value]="iconSet.value" id="icons-{{ iconSet.value }}" type="radio" class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">
+        {{ iconSet.label }}
+      </span>
+    </label>
+  </div>
+
   <div class="form-group row">
     <label for="display-format" class="col-12">
       Date Display Format<br>

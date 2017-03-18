@@ -12,6 +12,38 @@ export class IcDemoExampleComponent implements OnInit {
   displayDate: any;
   exampleDatepickerForm: FormGroup;
   exampleDatepickerConfig: IcDatepickerOptionsInterface;
+  iconSets = {
+    svg: {
+      nextMonth: { classes: ['chevron', 'chevron-right'] },
+      nextYears: { classes: ['chevron', 'chevron-down'] },
+      previousMonth: { classes: ['chevron', 'chevron-left'] },
+      previousYears: { classes: ['chevron', 'chevron-up'] }
+    },
+    fontAwesome: {
+      nextMonth: { classes: ['fa', 'fa-chevron-right'] },
+      nextYears: { classes: ['fa', 'fa-chevron-down'] },
+      previousMonth: { classes: ['fa', 'fa-chevron-left'] },
+      previousYears: { classes: ['fa', 'fa-chevron-up'] }
+    },
+    material: {
+      nextMonth: {
+        classes: ['material-icons'],
+        content: 'chevron_right'
+      },
+      nextYears: {
+        classes: ['material-icons'],
+        content: 'keyboard_arrow_down'
+      },
+      previousMonth: {
+        classes: ['material-icons'],
+        content: 'chevron_left'
+      },
+      previousYears: {
+        classes: ['material-icons'],
+        content: 'keyboard_arrow_up'
+      }
+    }
+  };
   showDatepicker = true;
 
   constructor() {}
@@ -56,10 +88,22 @@ export class IcDemoExampleComponent implements OnInit {
     this.showDatepicker = false;
 
     setTimeout(() => {
-      let config = $event.config;
+      let config = this.buildEventConfig($event.config);
       config.inputClasses = ['form-control'];
       this.exampleDatepickerConfig = config;
       this.showDatepicker = true;
     });
+  }
+
+  buildEventConfig(config) {
+    let icons = this.iconSets.svg;
+
+    if (this.iconSets[config.iconSet]) {
+      icons = this.iconSets[config.iconSet]
+    }
+
+    config.icons = icons;
+
+    return config;
   }
 }

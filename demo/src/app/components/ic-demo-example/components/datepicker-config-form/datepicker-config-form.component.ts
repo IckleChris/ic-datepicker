@@ -12,6 +12,16 @@ export class DatepickerConfigFormComponent implements OnInit, OnChanges {
 
   configForm: FormGroup;
   displayFormatOptions: string[];
+  iconSets = [{
+    value: 'svg',
+    label: 'Default (SVG)'
+  }, {
+    value: 'fontAwesome',
+    label: 'Font Awesome'
+  }, {
+    value: 'material',
+    label: 'Material Icons'
+  }];
   minDateOptions: any;
   maxDateOptions: any;
   positionOptions: string[];
@@ -48,6 +58,7 @@ export class DatepickerConfigFormComponent implements OnInit, OnChanges {
       closeOnSelect: new FormControl(),
       disableWeekends: new FormControl(),
       displayFormat: new FormControl(),
+      iconSet: new FormControl('svg'),
       maxDate: new FormControl(),
       minDate: new FormControl(),
       position: new FormControl(),
