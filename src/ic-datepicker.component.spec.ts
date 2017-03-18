@@ -99,6 +99,7 @@ describe('Component: IcDatepickerComponent', () => {
 
     component.yearOptions = [{
       formatted: '',
+      isDisabled: true,
       isSelected: false,
       isThisYear: false,
       moment: testYear.clone()
@@ -122,6 +123,7 @@ describe('Component: IcDatepickerComponent', () => {
 
     component.yearOptions = [{
       formatted: '',
+      isDisabled: false,
       isSelected: false,
       isThisYear: false,
       moment: testYear.clone()
