@@ -2,6 +2,8 @@
 
 [Docs & Example](https://icklechris.github.io/ic-datepicker)
 
+**Warning:** This component is still in pre-release. Although the component should be stable, until v1 is released there is potential for API changes whilst things are finalised. To prevent issues, ensure your `package.json` file specifies a specific version (e.g. `"ic-datepicker": "0.0.5"`).
+
 ## Installation
 
 Install the component via NPM;
