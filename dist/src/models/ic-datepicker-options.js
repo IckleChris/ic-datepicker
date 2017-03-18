@@ -28,10 +28,10 @@ var IcDatepickerOptions = (function () {
             disableWeekends: false,
             displayFormat: 'L',
             icons: {
-                nextMonth: ['chevron', 'chevron-right'],
-                nextYears: ['chevron', 'chevron-down'],
-                previousMonth: ['chevron', 'chevron-left'],
-                previousYears: ['chevron', 'chevron-up']
+                nextMonth: { classes: ['chevron', 'chevron-right'] },
+                nextYears: { classes: ['chevron', 'chevron-down'] },
+                previousMonth: { classes: ['chevron', 'chevron-left'] },
+                previousYears: { classes: ['chevron', 'chevron-up'] }
             },
             inputClasses: [],
             maxDate: undefined,

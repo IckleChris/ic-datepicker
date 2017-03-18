@@ -43,7 +43,9 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
             type="button" 
             class="cell action previous-month"
           >
-            <i [ngClass]="mergedOptions.icons.previousMonth"></i>
+            <i [ngClass]="mergedOptions.icons.previousMonth.classes">
+              {{ mergedOptions.icons.previousMonth.content }}
+            </i>
           </button>
 
           <h3 (click)="showYearSelectMode()" class="header-title">
@@ -56,7 +58,9 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
             type="button" 
             class="cell action next-month"
             >
-            <i [ngClass]="mergedOptions.icons.nextMonth"></i>
+            <i [ngClass]="mergedOptions.icons.nextMonth.classes">
+              {{ mergedOptions.icons.nextMonth.content }}
+            </i>
           </button>          
         </div>
         
@@ -115,7 +119,9 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
           <div class="ic-datepicker-dates">
             <button (click)="showYears('previous')" type="button" class="cell toggle-years previous">
               <span>
-                <i [ngClass]="mergedOptions.icons.previousYears"></i>            
+                <i [ngClass]="mergedOptions.icons.previousYears.classes">
+                  {{ mergedOptions.icons.previousYears.content }}
+                </i>            
               </span>
             </button>
             
@@ -132,7 +138,9 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
             
             <button (click)="showYears('next')" type="button" class="cell toggle-years next">
               <span>
-                <i [ngClass]="mergedOptions.icons.nextYears"></i>            
+                <i [ngClass]="mergedOptions.icons.nextYears.classes">
+                  {{ mergedOptions.icons.nextYears.content }}
+                </i>            
               </span>
             </button>
           </div>

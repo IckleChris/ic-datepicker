@@ -5,6 +5,7 @@ import { IcDatepickerQuickOption } from '../interfaces/ic-datepicker-quick-optio
 import { IcDatepickerDay } from '../interfaces/ic-datepicker-day';
 import { IcDatepickerService } from '../services/ic-datepicker.service';
 import { IcCustomDayClass } from "../interfaces/ic-custom-day-class";
+import { IcDatepickerIcon } from '../interfaces/ic-datepicker-icon';
 
 type datepickerPosition = 'top' | 'bottom';
 
@@ -35,10 +36,10 @@ export class IcDatepickerOptions {
   disableWeekends: boolean;
   displayFormat: string;
   icons: {
-    nextMonth: string | string[],
-    nextYears: string | string[],
-    previousMonth: string | string[],
-    previousYears: string | string[]
+    nextMonth: IcDatepickerIcon,
+    nextYears: IcDatepickerIcon,
+    previousMonth: IcDatepickerIcon,
+    previousYears: IcDatepickerIcon
   };
   inputClasses: string[];
   maxDate?: Moment.Moment;
@@ -65,10 +66,10 @@ export class IcDatepickerOptions {
     disableWeekends: false,
     displayFormat: 'L',
     icons: {
-      nextMonth: ['chevron', 'chevron-right'],
-      nextYears: ['chevron', 'chevron-down'],
-      previousMonth: ['chevron', 'chevron-left'],
-      previousYears: ['chevron', 'chevron-up']
+      nextMonth: { classes: ['chevron', 'chevron-right'] },
+      nextYears: { classes: ['chevron', 'chevron-down'] },
+      previousMonth: { classes: ['chevron', 'chevron-left'] },
+      previousYears: { classes: ['chevron', 'chevron-up'] }
     },
     inputClasses: [],
     maxDate: undefined,

@@ -4,6 +4,7 @@ import { IcDatepickerOptionsInterface } from '../interfaces/ic-datepicker-option
 import { IcDatepickerQuickOption } from '../interfaces/ic-datepicker-quick-option';
 import { IcDatepickerService } from '../services/ic-datepicker.service';
 import { IcCustomDayClass } from "../interfaces/ic-custom-day-class";
+import { IcDatepickerIcon } from '../interfaces/ic-datepicker-icon';
 export declare const defaultDayQuickOptions: {
     label: string;
     date: Moment.Moment;
@@ -25,10 +26,10 @@ export declare class IcDatepickerOptions {
     disableWeekends: boolean;
     displayFormat: string;
     icons: {
-        nextMonth: string | string[];
-        nextYears: string | string[];
-        previousMonth: string | string[];
-        previousYears: string | string[];
+        nextMonth: IcDatepickerIcon;
+        nextYears: IcDatepickerIcon;
+        previousMonth: IcDatepickerIcon;
+        previousYears: IcDatepickerIcon;
     };
     inputClasses: string[];
     maxDate?: Moment.Moment;

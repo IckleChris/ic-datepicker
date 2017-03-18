@@ -2,6 +2,7 @@
 import * as Moment from 'moment';
 import { IcDatepickerQuickOption } from './ic-datepicker-quick-option';
 import { IcCustomDayClass } from "./ic-custom-day-class";
+import { IcDatepickerIcon } from './ic-datepicker-icon';
 export interface IcDatepickerOptionsInterface {
     attrs?: {
         id?: string | null;
@@ -18,10 +19,10 @@ export interface IcDatepickerOptionsInterface {
     disableWeekends?: boolean;
     displayFormat?: string;
     icons?: {
-        nextMonth?: string | string[];
-        nextYears?: string | string[];
-        previousMonth?: string | string[];
-        previousYears?: string | string[];
+        nextMonth?: IcDatepickerIcon;
+        nextYears?: IcDatepickerIcon;
+        previousMonth?: IcDatepickerIcon;
+        previousYears?: IcDatepickerIcon;
     };
     inputClasses?: string[];
     maxDate?: Moment.Moment;
