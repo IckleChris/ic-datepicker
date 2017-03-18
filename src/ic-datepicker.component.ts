@@ -123,6 +123,7 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
               *ngFor="let year of yearOptions"
               (click)="setSelectedYear(year)"
               [ngClass]="{ 'this-year': year.isThisYear, selected: year.isSelected }" 
+              [disabled]="year.isDisabled"
               type="button"
               class="cell date year"
             >
@@ -704,8 +705,20 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
     let end = year.clone().add(25, 'years');
 
     while (year.isBefore(end)) {
+      let isDisabled = false;
+      let minDate = this.mergedOptions.minDate;
+      let maxDate = this.mergedOptions.maxDate;
+
+      if (
+        (minDate && year.isBefore(minDate, 'year')) ||
+        (maxDate && year.isAfter(maxDate, 'year'))
+      ) {
+        isDisabled = true;
+      }
+
       years.push({
         formatted: year.format('YYYY'),
+        isDisabled: isDisabled,
         isSelected: year.isSame(this.currentPeriod, 'year'),
         isThisYear: year.isSame(Moment(), 'year'),
         moment: year.clone()
