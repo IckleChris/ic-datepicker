@@ -477,7 +477,12 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
    * @param value
    */
   writeValue(value: any) {
-    if (!!value && value !== this.selectedDay) {
+    if (!value) {
+      this.selectedDay = null;
+      return;
+    }
+
+    if (value !== this.selectedDay) {
       if ('string' === typeof value) {
         value = Moment(value, this.mergedOptions.stringModelFormat);
       }

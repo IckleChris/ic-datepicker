@@ -102,7 +102,11 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
      * @param value
      */
     IcDatepickerComponent.prototype.writeValue = function (value) {
-        if (!!value && value !== this.selectedDay) {
+        if (!value) {
+            this.selectedDay = null;
+            return;
+        }
+        if (value !== this.selectedDay) {
             if ('string' === typeof value) {
                 value = Moment(value, this.mergedOptions.stringModelFormat);
             }
