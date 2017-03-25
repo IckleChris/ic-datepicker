@@ -38,6 +38,20 @@ describe('Component: IcDatepickerComponent', () => {
     inputEl = inputDe.nativeElement;
   });
 
+  it('should nullify the selected date when a null value is set', () => {
+    fixture.whenStable().then(() => {
+      component.writeValue('2017-01-01');
+      fixture.detectChanges();
+
+      expect(component.selectedDay).not.toBeNull();
+
+      component.writeValue(null);
+      fixture.detectChanges();
+
+      expect(component.selectedDay).toBeNull();
+    });
+  });
+
   it('should update the selected value', () => {
     fixture.detectChanges();
     let newValue = Moment('2017-01-01', 'YYYY-MM-DD');
