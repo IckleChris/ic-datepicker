@@ -74,7 +74,7 @@ export class IcDemoExampleComponent implements OnInit {
     };
 
     this.exampleDatepickerForm = new FormGroup({
-      datepicker: new FormControl(Moment())
+      datepicker: new FormControl(null)
     });
 
     const dateChange$ = this.exampleDatepickerForm.get('datepicker').valueChanges;
@@ -108,6 +108,6 @@ export class IcDemoExampleComponent implements OnInit {
   }
 
   onSubmit(form) {
-    console.log(form.value);
+    console.log('Submitted Value: ' + form.value.datepicker);
   }
 }

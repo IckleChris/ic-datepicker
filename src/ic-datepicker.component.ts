@@ -24,7 +24,7 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
   template: `
     <div class="ic-datepicker-container">
       <input 
-        [(ngModel)]="selectedDay.formattedDate" 
+        [value]="getInputValue()" 
         [ngClass]="options.inputClasses" 
         (click)="toggleDatepicker()"
         [attr.id]="mergedOptions.attrs.id"
@@ -106,7 +106,7 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
               *ngFor="let option of mergedOptions.dayQuickOptions"
               [hidden]="option.isDisabled"                
               (click)="setSelectedDay(option.datepickerDay, $event)"
-              [ngClass]="{ selected: option.date.isSame(selectedDay.moment, 'day') }"
+              [ngClass]="{ selected: (selectedDay && option.date.isSame(selectedDay.moment, 'day')) }"
               type="button"
               class="cell quick-option"
             >
@@ -361,7 +361,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
   @Output() closed = new EventEmitter();
 
   // Control Value Accessor setup
-  selectedDay: IcDatepickerDay;
+  selectedDay: IcDatepickerDay | null;
   propagateTouch: () => void = () => { };
   propagateChange: (_: any) => void = () => { };
 
@@ -391,10 +391,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
 
     // @todo: calculate whether the selected month should display based on min/max dates. Set the initial view appropriately
 
-    this.selectedDay = {
-      formattedDate: ' ',
-      moment: Moment()
-    };
+    this.selectedDay = null;
     this.setCurrentPeriod(Moment());
     this.datepickerIsOpen = false;
     this.dayLabels = this.icDatepickerService.buildDayLabels();
@@ -425,12 +422,17 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
     if (this.initialised) {
       this.mergedOptions = new IcDatepickerOptions(changes['options'].currentValue, this.icDatepickerService);
       this.setCurrentPeriod(this.currentPeriod);
-      this.selectedDay = this.icDatepickerService.buildDatepickerDay(
-        this.selectedDay.moment,
-        this.mergedOptions,
-        this.selectedDay.moment
-      );
-      this.emitModelChange(this.selectedDay);
+
+      if (this.selectedDay) {
+        this.selectedDay = this.icDatepickerService.buildDatepickerDay(
+          this.selectedDay.moment,
+          this.mergedOptions,
+          this.selectedDay.moment
+        );
+
+        this.emitModelChange(this.selectedDay);
+      }
+
       this.toggleMonthToggles(this.currentPeriod);
     }
   }
@@ -470,6 +472,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
   }
 
   /**
+   * Update the selected day when the model value is changed externally
    *
    * @param value
    */
@@ -480,7 +483,8 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
       }
 
       if (value.isValid()) {
-        value = this.icDatepickerService.buildDatepickerDay(value, this.mergedOptions, this.selectedDay.moment);
+        let selectedMoment = this.selectedDay ? this.selectedDay.moment : null;
+        value = this.icDatepickerService.buildDatepickerDay(value, this.mergedOptions, selectedMoment);
       } else {
         console.warn(`Invalid model value ${value} provided to the IcDatepickerComponent`);
         return false;
@@ -533,6 +537,21 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
    */
   setDisabledState(isDisabled: boolean) {
     // @todo: implement
+  }
+
+  /**
+   * Returns the value for display in the input field
+   *
+   * @returns {string}
+   */
+  getInputValue() {
+    let value = '';
+
+    if (this.selectedDay && this.selectedDay.formattedDate) {
+      value = this.selectedDay.formattedDate;
+    }
+
+    return value;
   }
 
   /**
@@ -750,7 +769,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
 
     switch (this.mergedOptions.modelType) {
       case 'moment':
-        originalValue = this.selectedDay.moment;
+        originalValue = this.selectedDay ? this.selectedDay.moment : null;
         updatedValue = day.moment;
         break;
 
@@ -760,12 +779,12 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
         break;
 
       case 'date':
-        originalValue = this.selectedDay.moment.toDate();
+        originalValue = this.selectedDay ? this.selectedDay.moment.toDate() : null;
         updatedValue = day.moment.toDate();
         break;
 
       case 'string':
-        originalValue = this.selectedDay.moment.format(this.mergedOptions.stringModelFormat);
+        originalValue = this.selectedDay ? this.selectedDay.moment.format(this.mergedOptions.stringModelFormat) : null;
         updatedValue = day.moment.format(this.mergedOptions.stringModelFormat);
         break;
     }

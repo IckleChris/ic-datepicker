@@ -16,7 +16,7 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
     monthChange: EventEmitter<{}>;
     opened: EventEmitter<{}>;
     closed: EventEmitter<{}>;
-    selectedDay: IcDatepickerDay;
+    selectedDay: IcDatepickerDay | null;
     propagateTouch: () => void;
     propagateChange: (_: any) => void;
     currentPeriod: Moment.Moment;
@@ -42,6 +42,7 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
     ngOnDestroy(): void;
     onKeyboardInput(event: KeyboardEvent): false | undefined;
     /**
+     * Update the selected day when the model value is changed externally
      *
      * @param value
      */
@@ -64,6 +65,12 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
      * @param isDisabled
      */
     setDisabledState(isDisabled: boolean): void;
+    /**
+     * Returns the value for display in the input field
+     *
+     * @returns {string}
+     */
+    getInputValue(): string;
     /**
      * Toggles the open state of the datepicker
      */
