@@ -67,7 +67,7 @@ export class IcDemoExampleComponent implements OnInit {
       inputClasses: ['form-control'],
       maxDate: null,
       minDate: null,
-      modelType: 'moment',
+      modelType: 'string',
       position: 'bottom',
       showDayQuickOptions: true,
       stringModelFormat: 'YYYY-MM-DD'
@@ -105,5 +105,9 @@ export class IcDemoExampleComponent implements OnInit {
     config.icons = icons;
 
     return config;
+  }
+
+  onSubmit(form) {
+    console.log(form.value);
   }
 }

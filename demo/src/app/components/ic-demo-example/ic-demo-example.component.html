@@ -8,11 +8,15 @@
       <div class="datepicker-container">
         <div class="row">
           <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-            <form [formGroup]="exampleDatepickerForm">
+            <form [formGroup]="exampleDatepickerForm" (ngSubmit)="onSubmit(exampleDatepickerForm)">
               <label for="example-datepicker">
                 Example
               </label>
               <ic-datepicker formControlName="datepicker" [options]="exampleDatepickerConfig"></ic-datepicker>
+
+              <button type="submit" class="btn btn-block btn-primary mt-2">
+                Submit to Console
+              </button>
             </form>
           </div>
         </div>
