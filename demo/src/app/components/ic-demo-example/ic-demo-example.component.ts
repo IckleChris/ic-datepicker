@@ -110,4 +110,10 @@ export class IcDemoExampleComponent implements OnInit {
   onSubmit(form) {
     console.log('Submitted Value: ' + form.value.datepicker);
   }
+
+  clearDatepicker() {
+    this.exampleDatepickerForm.patchValue({
+      datepicker: null
+    });
+  }
 }
