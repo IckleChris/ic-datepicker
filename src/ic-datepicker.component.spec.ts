@@ -45,8 +45,12 @@ describe('Component: IcDatepickerComponent', () => {
     component.writeValue(newValue);
     fixture.detectChanges();
 
-    expect(component.selectedDay.moment.isSame(newValue)).toBe(true);
-    expect(component.selectedDay.formattedDate).toBe(newValue.format('L'));
+    expect(component.selectedDay).not.toBeNull();
+
+    if (component.selectedDay) {
+      expect(component.selectedDay.moment.isSame(newValue)).toBe(true);
+      expect(component.selectedDay.formattedDate).toBe(newValue.format('L'));
+    }
   });
 
   it('should not open the datepicker by default', () => {
@@ -156,18 +160,6 @@ describe('Component: IcDatepickerComponent', () => {
     expect(component.dateChange.emit).toHaveBeenCalled();
   });
 
-  it('should open the datepicker when the input is clicked', () => {
-    fixture.whenStable().then(() => {
-      inputEl.click();
-
-      fixture.detectChanges();
-
-      fixture.whenStable().then(() => {
-        expect(datepickerPopupEl.style.display).toBe('block');
-      });
-    });
-  });
-
   it('should not display year select mode by default', () => {
     fixture.detectChanges();
     expect(component.yearSelectMode).toBe(false);
@@ -220,5 +212,17 @@ describe('Component: IcDatepickerComponent', () => {
     component.closeDatepicker();
     fixture.detectChanges();
     expect(component.datepickerIsOpen).toBe(false);
+  });
+
+  it('should open the datepicker when the input is clicked', () => {
+    fixture.whenStable().then(() => {
+      inputEl.click();
+
+      fixture.detectChanges();
+
+      fixture.whenStable().then(() => {
+        expect(datepickerPopupEl.style.display).toBe('block');
+      });
+    });
   });
 });
