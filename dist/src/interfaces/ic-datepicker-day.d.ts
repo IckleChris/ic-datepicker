@@ -1,4 +1,3 @@
-/// <reference types="moment" />
 import * as Moment from 'moment';
 export interface IcDatepickerDay {
     classes?: string[];
