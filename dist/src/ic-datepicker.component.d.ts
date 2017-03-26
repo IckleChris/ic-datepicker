@@ -24,6 +24,7 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
     dayLabels: string[];
     documentClickEvent: Function;
     initialised: boolean;
+    isDisabled: boolean;
     mergedOptions: IcDatepickerOptions;
     nextMonthToggleActive: boolean;
     periodDays: IcDatepickerDay[];

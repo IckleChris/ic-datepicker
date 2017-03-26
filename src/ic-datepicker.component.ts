@@ -90,7 +90,7 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
               [class.selected]="day.isSelected"
               [class.weekend]="day.isWeekend"
               [class.placeholder]="day.isPlaceholder"
-              [disabled]="day.isPlaceholder || (day.isWeekend && mergedOptions.disableWeekends) || day.isDisabled" 
+              [disabled]="isDisabled || day.isPlaceholder || (day.isWeekend && mergedOptions.disableWeekends) || day.isDisabled" 
               type="button" 
               class="cell date"
             >
@@ -107,6 +107,7 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
               [hidden]="option.isDisabled"                
               (click)="setSelectedDay(option.datepickerDay, $event)"
               [ngClass]="{ selected: (selectedDay && option.date.isSame(selectedDay.moment, 'day')) }"
+              [disabled]="isDisabled"
               type="button"
               class="cell quick-option"
             >
@@ -370,6 +371,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
   dayLabels: string[];
   documentClickEvent: Function;
   initialised = false;
+  isDisabled = false;
   mergedOptions: IcDatepickerOptions;
   nextMonthToggleActive: boolean;
   periodDays: IcDatepickerDay[];
@@ -541,7 +543,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
    * @param isDisabled
    */
   setDisabledState(isDisabled: boolean) {
-    // @todo: implement
+    this.isDisabled = isDisabled;
   }
 
   /**
@@ -629,7 +631,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
       $event.stopPropagation();
     }
 
-    if (day.isPlaceholder && day.isDisabled) {
+    if (this.isDisabled || day.isPlaceholder || day.isDisabled) {
       return false;
     }
 
