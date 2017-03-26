@@ -53,6 +53,7 @@ export class IcDemoExampleComponent implements OnInit {
       attrs: {
         id: 'example-datepicker'
       },
+      clearInvalidDates: true,
       closeOnSelect: true,
       customDayClasses: [
         {
@@ -65,7 +66,7 @@ export class IcDemoExampleComponent implements OnInit {
       disableWeekends: false,
       displayFormat: 'L',
       inputClasses: ['form-control'],
-      maxDate: Moment().add(1, 'month'),
+      maxDate: Moment().add(2, 'month'),
       minDate: Moment(),
       modelType: 'string',
       position: 'bottom',
@@ -75,7 +76,7 @@ export class IcDemoExampleComponent implements OnInit {
 
     this.exampleDatepickerForm = new FormGroup({
       datepicker: new FormControl({
-        value: Moment().add(2, 'months').format('YYYY-MM-DD'),
+        value: Moment().add(3, 'months').format('YYYY-MM-DD'),
         disabled: false
       })
     });
