@@ -103,6 +103,7 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
      * @param value
      */
     IcDatepickerComponent.prototype.writeValue = function (value) {
+        var _this = this;
         if (!value) {
             this.selectedDay = null;
             return;
@@ -130,6 +131,12 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
             }
             if (!isValid) {
                 console.warn('Initial date falls beyond the configured minimum/maximum date');
+                if (this.mergedOptions.clearInvalidDates) {
+                    this.selectedDay = null;
+                    setTimeout(function () {
+                        _this.emitModelChange(null);
+                    });
+                }
                 return false;
             }
             this.selectedDay = value;
@@ -235,7 +242,7 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
         if (this.selectedDay && this.selectedDay.moment && day.moment && day.moment.isSame(this.selectedDay.moment)) {
             return false;
         }
-        this.selectedDay = day;
+        // this.selectedDay = day;
         if (day.moment) {
             this.setCurrentPeriod(day.moment);
         }
@@ -341,23 +348,31 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
      */
     IcDatepickerComponent.prototype.emitModelChange = function (day) {
         var originalValue;
-        var updatedValue;
+        var updatedValue = day;
         switch (this.mergedOptions.modelType) {
             case 'moment':
                 originalValue = this.selectedDay ? this.selectedDay.moment : null;
-                updatedValue = day.moment;
+                if (day) {
+                    updatedValue = day.moment;
+                }
                 break;
             case 'IcDatepickerDay':
                 originalValue = this.selectedDay;
-                updatedValue = day;
+                if (day) {
+                    updatedValue = day;
+                }
                 break;
             case 'date':
                 originalValue = this.selectedDay ? this.selectedDay.moment.toDate() : null;
-                updatedValue = day.moment.toDate();
+                if (day) {
+                    updatedValue = day.moment.toDate();
+                }
                 break;
             case 'string':
                 originalValue = this.selectedDay ? this.selectedDay.moment.format(this.mergedOptions.stringModelFormat) : null;
-                updatedValue = day.moment.format(this.mergedOptions.stringModelFormat);
+                if (day) {
+                    updatedValue = day.moment.format(this.mergedOptions.stringModelFormat);
+                }
                 break;
         }
         // Inform change listeners of the change

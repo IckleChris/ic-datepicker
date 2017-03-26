@@ -11,6 +11,7 @@ export interface IcDatepickerOptionsInterface {
         readonly?: boolean;
         tabindex?: number;
     };
+    clearInvalidDates?: boolean;
     closeOnSelect?: boolean;
     customDayClasses?: IcCustomDayClass[];
     dayQuickOptions?: IcDatepickerQuickOption[];

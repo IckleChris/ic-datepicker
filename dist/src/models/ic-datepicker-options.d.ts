@@ -18,6 +18,7 @@ export declare class IcDatepickerOptions {
         readonly: boolean;
         tabindex: number;
     };
+    clearInvalidDates: boolean;
     closeOnSelect: boolean;
     customDayClasses: IcCustomDayClass[];
     dayQuickOptions: IcDatepickerQuickOption[];

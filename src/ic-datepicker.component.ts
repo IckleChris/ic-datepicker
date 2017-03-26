@@ -511,6 +511,14 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
 
       if (!isValid) {
         console.warn('Initial date falls beyond the configured minimum/maximum date');
+
+        if (this.mergedOptions.clearInvalidDates) {
+          this.selectedDay = null;
+          setTimeout(() => {
+            this.emitModelChange(null);
+          });
+        }
+
         return false;
       }
 
@@ -639,7 +647,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
       return false;
     }
 
-    this.selectedDay = day;
+    // this.selectedDay = day;
 
     if (day.moment) {
       this.setCurrentPeriod(day.moment);
@@ -770,29 +778,45 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
    *
    * @param day
    */
-  private emitModelChange(day: IcDatepickerDay) {
+  private emitModelChange(day: IcDatepickerDay | null) {
     let originalValue: any;
-    let updatedValue: any;
+    let updatedValue: any = day;
 
     switch (this.mergedOptions.modelType) {
       case 'moment':
         originalValue = this.selectedDay ? this.selectedDay.moment : null;
-        updatedValue = day.moment;
+
+        if (day) {
+          updatedValue = day.moment;
+        }
+
         break;
 
       case 'IcDatepickerDay':
         originalValue = this.selectedDay;
-        updatedValue = day;
+
+        if (day) {
+          updatedValue = day;
+        }
+
         break;
 
       case 'date':
         originalValue = this.selectedDay ? this.selectedDay.moment.toDate() : null;
-        updatedValue = day.moment.toDate();
+
+        if (day) {
+          updatedValue = day.moment.toDate();
+        }
+
         break;
 
       case 'string':
         originalValue = this.selectedDay ? this.selectedDay.moment.format(this.mergedOptions.stringModelFormat) : null;
-        updatedValue = day.moment.format(this.mergedOptions.stringModelFormat);
+
+        if (day) {
+          updatedValue = day.moment.format(this.mergedOptions.stringModelFormat);
+        }
+
         break;
     }
 

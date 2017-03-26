@@ -28,6 +28,7 @@ export class IcDatepickerOptions {
     readonly: boolean,
     tabindex: number
   };
+  clearInvalidDates: boolean;
   closeOnSelect: boolean;
   customDayClasses: IcCustomDayClass[];
   dayQuickOptions: IcDatepickerQuickOption[];
@@ -58,6 +59,7 @@ export class IcDatepickerOptions {
       readonly: true,
       tabindex: 0
     },
+    clearInvalidDates: true,
     closeOnSelect: true,
     customDayClasses: [],
     dayQuickOptions: defaultDayQuickOptions,
@@ -108,6 +110,7 @@ export class IcDatepickerOptions {
       this.icons = this.defaults.icons;
     }
 
+    this.clearInvalidDates = (null == options.clearInvalidDates) ? this.defaults.clearInvalidDates : options.clearInvalidDates;
     this.closeOnSelect = (null == options.closeOnSelect) ? this.defaults.closeOnSelect : options.closeOnSelect;
     this.customDayClasses = options.customDayClasses || this.defaults.customDayClasses;
     this.defaultToYearSelect = options.defaultToYearSelect || this.defaults.defaultToYearSelect;
