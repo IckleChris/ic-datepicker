@@ -507,13 +507,14 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
         }
       }
 
-      if (!isValid) {
-        console.warn('Initial date falls beyond the configured minimum/maximum date');
-        return false;
-      }
-
       this.selectedDay = value;
       this.setCurrentPeriod(value.moment);
+      this.toggleMonthToggles(value.moment);
+
+      if (!isValid) {
+        console.warn('Date falls beyond the configured minimum/maximum date');
+        return false;
+      }
     }
   }
 
