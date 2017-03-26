@@ -10,6 +10,7 @@ export class IcDemoOptionsComponent implements OnInit {
   activeOption: any;
   markdownPath = 'assets/docs/options/';
   options = [
+    { label: 'clearInvalidDates' },
     { label: 'closeOnSelect' },
     { label: 'customDayClasses' },
     { label: 'dayQuickOptions' },
