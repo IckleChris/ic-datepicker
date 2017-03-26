@@ -11,7 +11,7 @@ import { IcDatepickerOptionsInterface } from "ic-datepicker";
 export class IcDemoExampleComponent implements OnInit {
   displayDate: any;
   exampleDatepickerForm: FormGroup;
-  exampleDatepickerConfig: IcDatepickerOptionsInterface;
+  exampleDatepickerConfig: any;
   iconSets = {
     svg: {
       nextMonth: { classes: ['chevron', 'chevron-right'] },
@@ -65,8 +65,8 @@ export class IcDemoExampleComponent implements OnInit {
       disableWeekends: false,
       displayFormat: 'L',
       inputClasses: ['form-control'],
-      maxDate: null,
-      minDate: null,
+      maxDate: Moment().add(1, 'month'),
+      minDate: Moment(),
       modelType: 'string',
       position: 'bottom',
       showDayQuickOptions: true,
@@ -74,7 +74,10 @@ export class IcDemoExampleComponent implements OnInit {
     };
 
     this.exampleDatepickerForm = new FormGroup({
-      datepicker: new FormControl(null)
+      datepicker: new FormControl({
+        value: Moment().add(2, 'months').format('YYYY-MM-DD'),
+        disabled: false
+      })
     });
 
     const dateChange$ = this.exampleDatepickerForm.get('datepicker').valueChanges;
@@ -85,13 +88,19 @@ export class IcDemoExampleComponent implements OnInit {
   }
 
   onConfigChanged($event) {
-    this.showDatepicker = false;
 
     setTimeout(() => {
+      let datepicker = this.exampleDatepickerForm.get('datepicker');
       let config = this.buildEventConfig($event.config);
       config.inputClasses = ['form-control'];
+
+      if (config.disableDatepicker) {
+        datepicker.disable();
+      } else {
+        datepicker.enable();
+      }
+
       this.exampleDatepickerConfig = config;
-      this.showDatepicker = true;
     });
   }
 

@@ -56,6 +56,7 @@ export class DatepickerConfigFormComponent implements OnInit, OnChanges {
   private buildConfigForm(value) {
     let configForm = new FormGroup({
       closeOnSelect: new FormControl(),
+      disableDatepicker: new FormControl(),
       disableWeekends: new FormControl(),
       displayFormat: new FormControl(),
       iconSet: new FormControl('svg'),
