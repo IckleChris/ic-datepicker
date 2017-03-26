@@ -379,6 +379,13 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
   yearSelectMode: boolean;
   yearOptions: IcDatepickerYear[];
 
+  /**
+   * IcDatepickerComponent Constructor
+   *
+   * @param icDatepickerService
+   * @param renderer
+   * @param element
+   */
   constructor(
     @Inject(IcDatepickerService) private icDatepickerService: IcDatepickerService,
     @Inject(Renderer) private renderer: Renderer,
@@ -420,6 +427,11 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
     this.initialised = true;
   }
 
+  /**
+   * On @Input() changes
+   *
+   * @param changes
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (this.initialised) {
       this.mergedOptions = new IcDatepickerOptions(changes['options'].currentValue, this.icDatepickerService);
@@ -449,6 +461,12 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
     }
   }
 
+  /**
+   * Keyboard events
+   *
+   * @param event
+   * @returns {boolean}
+   */
   @HostListener('keydown', ['$event'])
   onKeyboardInput(event: KeyboardEvent) {
     if (!this.datepickerIsOpen) {
@@ -589,6 +607,11 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
     this.closed.emit();
   }
 
+  /**
+   * Toggles the displayed month
+   *
+   * @param direction
+   */
   showMonth(direction: 'next' | 'previous') {
     let originalValue = this.currentPeriod.clone();
     let updatedPeriod: Moment.Moment;
@@ -624,15 +647,28 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
     this.yearOptions = this.buildYearOptions(currentLastYear);
   }
 
+  /**
+   * Shows the Year selection panel
+   */
   showYearSelectMode() {
     this.yearOptions = this.buildYearOptions();
     this.yearSelectMode = true;
   }
 
+  /**
+   * Hides the Year selection panel
+   */
   hideYearSelectMode() {
     this.yearSelectMode = false;
   }
 
+  /**
+   * Sets the internally tracked selected day to equal the provided day
+   *
+   * @param day
+   * @param $event
+   * @returns {boolean}
+   */
   setSelectedDay(day: IcDatepickerDay, $event?: MouseEvent) {
     if ($event) {
       $event.preventDefault();
@@ -737,6 +773,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
   }
 
   /**
+   * Builds the list of Year options for the Year select panel
    *
    * @param year
    * @returns {IcDatepickerYear[]}

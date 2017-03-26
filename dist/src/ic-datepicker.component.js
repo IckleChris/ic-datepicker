@@ -16,6 +16,13 @@ import * as Moment from 'moment';
 import { IcDatepickerOptions } from './models/ic-datepicker-options';
 import { IcDatepickerService } from './services/ic-datepicker.service';
 var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
+    /**
+     * IcDatepickerComponent Constructor
+     *
+     * @param icDatepickerService
+     * @param renderer
+     * @param element
+     */
     function IcDatepickerComponent(icDatepickerService, renderer, element) {
         this.icDatepickerService = icDatepickerService;
         this.renderer = renderer;
@@ -58,6 +65,11 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
         });
         this.initialised = true;
     };
+    /**
+     * On @Input() changes
+     *
+     * @param changes
+     */
     IcDatepickerComponent.prototype.ngOnChanges = function (changes) {
         if (this.initialised) {
             this.mergedOptions = new IcDatepickerOptions(changes['options'].currentValue, this.icDatepickerService);
@@ -78,6 +90,12 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
             this.documentClickEvent();
         }
     };
+    /**
+     * Keyboard events
+     *
+     * @param event
+     * @returns {boolean}
+     */
     IcDatepickerComponent.prototype.onKeyboardInput = function (event) {
         if (!this.datepickerIsOpen) {
             return false;
@@ -194,6 +212,11 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
         this.datepickerIsOpen = false;
         this.closed.emit();
     };
+    /**
+     * Toggles the displayed month
+     *
+     * @param direction
+     */
     IcDatepickerComponent.prototype.showMonth = function (direction) {
         var originalValue = this.currentPeriod.clone();
         var updatedPeriod;
@@ -224,13 +247,26 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
         }
         this.yearOptions = this.buildYearOptions(currentLastYear);
     };
+    /**
+     * Shows the Year selection panel
+     */
     IcDatepickerComponent.prototype.showYearSelectMode = function () {
         this.yearOptions = this.buildYearOptions();
         this.yearSelectMode = true;
     };
+    /**
+     * Hides the Year selection panel
+     */
     IcDatepickerComponent.prototype.hideYearSelectMode = function () {
         this.yearSelectMode = false;
     };
+    /**
+     * Sets the internally tracked selected day to equal the provided day
+     *
+     * @param day
+     * @param $event
+     * @returns {boolean}
+     */
     IcDatepickerComponent.prototype.setSelectedDay = function (day, $event) {
         if ($event) {
             $event.preventDefault();
@@ -314,6 +350,7 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
         this.periodDays = this.icDatepickerService.buildCalendarMonth(this.currentPeriod.clone(), this.mergedOptions, selectedDay);
     };
     /**
+     * Builds the list of Year options for the Year select panel
      *
      * @param year
      * @returns {IcDatepickerYear[]}

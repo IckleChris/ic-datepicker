@@ -31,16 +31,34 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
     previousMonthToggleActive: boolean;
     yearSelectMode: boolean;
     yearOptions: IcDatepickerYear[];
+    /**
+     * IcDatepickerComponent Constructor
+     *
+     * @param icDatepickerService
+     * @param renderer
+     * @param element
+     */
     constructor(icDatepickerService: IcDatepickerService, renderer: Renderer, element: ElementRef);
     /**
      * On Component init
      */
     ngOnInit(): void;
+    /**
+     * On @Input() changes
+     *
+     * @param changes
+     */
     ngOnChanges(changes: SimpleChanges): void;
     /**
      * On Component destroy
      */
     ngOnDestroy(): void;
+    /**
+     * Keyboard events
+     *
+     * @param event
+     * @returns {boolean}
+     */
     onKeyboardInput(event: KeyboardEvent): false | undefined;
     /**
      * Update the selected day when the model value is changed externally
@@ -80,14 +98,32 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
      * Closes the Datepicker
      */
     closeDatepicker(): void;
+    /**
+     * Toggles the displayed month
+     *
+     * @param direction
+     */
     showMonth(direction: 'next' | 'previous'): void;
     /**
      *
      * @param direction
      */
     showYears(direction: 'next' | 'previous'): void;
+    /**
+     * Shows the Year selection panel
+     */
     showYearSelectMode(): void;
+    /**
+     * Hides the Year selection panel
+     */
     hideYearSelectMode(): void;
+    /**
+     * Sets the internally tracked selected day to equal the provided day
+     *
+     * @param day
+     * @param $event
+     * @returns {boolean}
+     */
     setSelectedDay(day: IcDatepickerDay, $event?: MouseEvent): false | undefined;
     /**
      *
@@ -107,6 +143,7 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
      */
     private setCurrentPeriod(momentInstance);
     /**
+     * Builds the list of Year options for the Year select panel
      *
      * @param year
      * @returns {IcDatepickerYear[]}
