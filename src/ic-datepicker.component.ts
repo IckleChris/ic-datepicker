@@ -683,7 +683,7 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
       return false;
     }
 
-    // this.selectedDay = day;
+    this.selectedDay = day;
 
     if (day.moment) {
       this.setCurrentPeriod(day.moment);

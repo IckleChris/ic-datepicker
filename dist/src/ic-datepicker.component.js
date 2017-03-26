@@ -278,7 +278,7 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
         if (this.selectedDay && this.selectedDay.moment && day.moment && day.moment.isSame(this.selectedDay.moment)) {
             return false;
         }
-        // this.selectedDay = day;
+        this.selectedDay = day;
         if (day.moment) {
             this.setCurrentPeriod(day.moment);
         }
