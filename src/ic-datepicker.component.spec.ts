@@ -228,6 +228,32 @@ describe('Component: IcDatepickerComponent', () => {
     expect(component.datepickerIsOpen).toBe(false);
   });
 
+  it('should allow the disabled state to be toggled', () => {
+    fixture.whenStable().then(() => {
+      component.setDisabledState(true);
+
+      expect(component.isDisabled).toBe(true);
+    });
+  });
+
+  it('should not update the selected date when the datepicker is disabled', () => {
+    fixture.whenStable().then(() => {
+      let newMoment = Moment().subtract(10, 'years');
+
+      component.selectedDay = {
+        moment: Moment()
+      };
+
+      component.isDisabled = true;
+
+      component.setSelectedDay({
+        moment: newMoment
+      });
+
+      expect(component.selectedDay.moment.isSame(Moment())).toBe(true);
+    });
+  });
+
   it('should open the datepicker when the input is clicked', () => {
     fixture.whenStable().then(() => {
       inputEl.click();
