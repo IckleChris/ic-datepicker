@@ -94,6 +94,22 @@ var IcDatepickerService = (function () {
         return labels;
     };
     /**
+     * Returns a boolean representing whether the provided date is valid
+     *
+     * @param date
+     * @param options
+     */
+    IcDatepickerService.prototype.dateIsValid = function (date, options) {
+        var isValid = date.isValid();
+        if (isValid && options.minDate) {
+            isValid = date.isSameOrAfter(options.minDate, 'day');
+        }
+        if (isValid && options.maxDate) {
+            isValid = date.isSameOrBefore(options.maxDate, 'day');
+        }
+        return isValid;
+    };
+    /**
      * Build the provided number of placeholder days
      *
      * @param quantity

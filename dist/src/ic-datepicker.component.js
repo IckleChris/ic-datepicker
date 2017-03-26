@@ -278,6 +278,9 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
         if (this.selectedDay && this.selectedDay.moment && day.moment && day.moment.isSame(this.selectedDay.moment)) {
             return false;
         }
+        if (!this.icDatepickerService.dateIsValid(day.moment, this.mergedOptions)) {
+            return false;
+        }
         this.selectedDay = day;
         if (day.moment) {
             this.setCurrentPeriod(day.moment);

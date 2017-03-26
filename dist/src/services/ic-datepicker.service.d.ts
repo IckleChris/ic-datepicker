@@ -28,6 +28,13 @@ export declare class IcDatepickerService {
      */
     buildDayLabels(): string[];
     /**
+     * Returns a boolean representing whether the provided date is valid
+     *
+     * @param date
+     * @param options
+     */
+    dateIsValid(date: Moment.Moment, options: IcDatepickerOptions): boolean;
+    /**
      * Build the provided number of placeholder days
      *
      * @param quantity

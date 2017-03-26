@@ -116,6 +116,26 @@ export class IcDatepickerService {
   }
 
   /**
+   * Returns a boolean representing whether the provided date is valid
+   *
+   * @param date
+   * @param options
+   */
+  dateIsValid(date: Moment.Moment, options: IcDatepickerOptions) {
+    let isValid = date.isValid();
+
+    if (isValid && options.minDate) {
+      isValid = date.isSameOrAfter(options.minDate, 'day');
+    }
+
+    if (isValid && options.maxDate) {
+      isValid = date.isSameOrBefore(options.maxDate, 'day');
+    }
+
+    return isValid;
+  }
+
+  /**
    * Build the provided number of placeholder days
    *
    * @param quantity

@@ -683,6 +683,10 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
       return false;
     }
 
+    if (!this.icDatepickerService.dateIsValid(day.moment, this.mergedOptions)) {
+      return false;
+    }
+
     this.selectedDay = day;
 
     if (day.moment) {
