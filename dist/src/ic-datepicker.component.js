@@ -159,6 +159,11 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
             }
             this.selectedDay = value;
             this.setCurrentPeriod(value.moment);
+            this.toggleMonthToggles(value.moment);
+            if (!isValid) {
+                console.warn('Date falls beyond the configured minimum/maximum date');
+                return false;
+            }
         }
     };
     /**
