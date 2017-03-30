@@ -26,7 +26,7 @@ export class IcDatepickerOptions {
     name: string | null,
     placeholder: string | null,
     readonly: boolean,
-    tabindex: number
+    tabindex: number | null
   };
   clearInvalidDates: boolean;
   closeOnSelect: boolean;
@@ -57,7 +57,7 @@ export class IcDatepickerOptions {
       name: null,
       placeholder: null,
       readonly: true,
-      tabindex: 0
+      tabindex: null
     },
     clearInvalidDates: true,
     closeOnSelect: true,

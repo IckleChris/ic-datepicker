@@ -8,7 +8,7 @@ export interface IcDatepickerOptionsInterface {
         name?: string | null;
         placeholder?: string | null;
         readonly?: boolean;
-        tabindex?: number;
+        tabindex?: number | null;
     };
     clearInvalidDates?: boolean;
     closeOnSelect?: boolean;

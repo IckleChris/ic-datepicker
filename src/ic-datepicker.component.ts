@@ -469,10 +469,6 @@ export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, O
    */
   @HostListener('keydown', ['$event'])
   onKeyboardInput(event: KeyboardEvent) {
-    if (!this.datepickerIsOpen) {
-      return false;
-    }
-
     switch (event.keyCode) {
       // Esc
       case 27:

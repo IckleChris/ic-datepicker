@@ -58,7 +58,7 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
      * @param event
      * @returns {boolean}
      */
-    onKeyboardInput(event: KeyboardEvent): false | undefined;
+    onKeyboardInput(event: KeyboardEvent): void;
     /**
      * Update the selected day when the model value is changed externally
      *

@@ -18,7 +18,7 @@ var IcDatepickerOptions = (function () {
                 name: null,
                 placeholder: null,
                 readonly: true,
-                tabindex: 0
+                tabindex: null
             },
             clearInvalidDates: true,
             closeOnSelect: true,
