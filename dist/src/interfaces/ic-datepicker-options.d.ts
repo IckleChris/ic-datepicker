@@ -1,4 +1,3 @@
-/// <reference types="moment" />
 import * as Moment from 'moment';
 import { IcDatepickerQuickOption } from './ic-datepicker-quick-option';
 import { IcCustomDayClass } from "./ic-custom-day-class";
@@ -9,7 +8,7 @@ export interface IcDatepickerOptionsInterface {
         name?: string | null;
         placeholder?: string | null;
         readonly?: boolean;
-        tabindex?: number;
+        tabindex?: number | null;
     };
     clearInvalidDates?: boolean;
     closeOnSelect?: boolean;

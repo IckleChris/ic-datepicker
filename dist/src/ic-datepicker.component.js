@@ -97,9 +97,6 @@ var IcDatepickerComponent = IcDatepickerComponent_1 = (function () {
      * @returns {boolean}
      */
     IcDatepickerComponent.prototype.onKeyboardInput = function (event) {
-        if (!this.datepickerIsOpen) {
-            return false;
-        }
         switch (event.keyCode) {
             // Esc
             case 27:

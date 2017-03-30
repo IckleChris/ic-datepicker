@@ -1,4 +1,3 @@
-/// <reference types="moment" />
 import { OnInit, Renderer, OnDestroy, ElementRef, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import * as Moment from 'moment';
@@ -59,7 +58,7 @@ export declare class IcDatepickerComponent implements ControlValueAccessor, OnCh
      * @param event
      * @returns {boolean}
      */
-    onKeyboardInput(event: KeyboardEvent): false | undefined;
+    onKeyboardInput(event: KeyboardEvent): void;
     /**
      * Update the selected day when the model value is changed externally
      *
