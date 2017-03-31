@@ -1,1 +1,1 @@
-{"version":3,"file":"ic-custom-day-class.js","sourceRoot":"","sources":["../../../src/interfaces/ic-custom-day-class.ts"],"names":[],"mappings":"","sourcesContent":["export interface IcCustomDayClass {\n  classes: string[];\n  callback: Function;\n}\n\ninterface DecoratorInvocation {\n  type: Function;\n  args?: any[];\n}\n"]}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"ic-custom-day-class.js","sourceRoot":"","sourcesContent":[]}

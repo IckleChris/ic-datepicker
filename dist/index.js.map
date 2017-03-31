@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../index.ts"],"names":[],"mappings":"AAAA,cAAc,aAAa,CAAC","sourcesContent":["export * from './src/index';\n\ninterface DecoratorInvocation {\n  type: Function;\n  args?: any[];\n}\n"]}
+{"version":3,"sources":["../index.ts"],"names":[],"mappings":"AAAA,OAAO,EACL,kBAAkB,EAClB,qBAAqB,EACrB,mBAAmB,EAEpB,MAAM,aAAa,CAAC","file":"index.js","sourceRoot":"","sourcesContent":["export {\n  IcDatepickerModule,\n  IcDatepickerComponent,\n  IcDatepickerService,\n  IcDatepickerOptionsInterface\n} from './src/index';\n"]}
