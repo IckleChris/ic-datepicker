@@ -1,4 +1,4 @@
-export * from './ic-datepicker.module';
-export * from './ic-datepicker.component';
-export * from './services/ic-datepicker.service';
-export * from './interfaces/ic-datepicker-options';
+export { IcDatepickerModule } from './ic-datepicker.module';
+export { IcDatepickerComponent } from './ic-datepicker.component';
+export { IcDatepickerService } from './services/ic-datepicker.service';
+export { IcDatepickerOptionsInterface } from './interfaces/ic-datepicker-options';
