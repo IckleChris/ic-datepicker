@@ -197,6 +197,10 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
       color: #ffffff;
     }
     
+    .ic-datepicker .cell[disabled]:hover {
+      cursor: not-allowed;
+    }
+    
     .ic-datepicker .cell:not([disabled]):not(.selected):not(.day-label):hover {
       background: #f0f0f0;
       cursor: pointer;
