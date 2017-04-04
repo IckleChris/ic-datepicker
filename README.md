@@ -17,7 +17,7 @@ Import the `IcDatepickerModule` into your module;
 ```typescript
 // app.module.ts
 
-import { IcDatepickerModule } from 'ic-datepicker/dist';
+import { IcDatepickerModule } from 'ic-datepicker';
 
 @NgModule({
   imports: [
@@ -31,7 +31,7 @@ import { IcDatepickerModule } from 'ic-datepicker/dist';
 Use the `<ic-datepicker/>` element, optionally providing an `IcDatepickerOptionsInterface` instance containing overriding options ([see defaults](https://icklechris.github.io/ic-datepicker/options)).
 
 ```typescript
-import { IcDatepickerOptionsInterface } from 'ic-datepicker/dist';
+import { IcDatepickerOptionsInterface } from 'ic-datepicker';
 
 @Component({
   selector: 'my-example-component',
