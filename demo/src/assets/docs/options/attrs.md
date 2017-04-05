@@ -10,10 +10,12 @@ Attributes to add to the `<input/>` field in the datepicker component.
 
 ```javascript
 {
-  id: null,
-  name: null,
-  placeholder: null,
-  readonly: true,
-  tabindex: null
-},
+  attrs: {
+    id: null,
+    name: null,
+    placeholder: null,
+    readonly: true,
+    tabindex: null
+  }
+}
 ```
