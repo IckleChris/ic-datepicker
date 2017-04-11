@@ -25,6 +25,7 @@ export class IcDemoOptionsComponent implements OnInit {
     { label: 'modelType' },
     { label: 'position' },
     { label: 'showDayQuickOptions' },
+    { label: 'showEmptyRow' },
     { label: 'stringModelFormat' },
   ];
 
