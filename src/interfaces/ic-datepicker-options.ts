@@ -30,6 +30,7 @@ export interface IcDatepickerOptionsInterface {
   maxDate?: Moment.Moment;
   minDate?: Moment.Moment;
   modelType?: string;
+  showEmptyRow?: boolean;
   position?: 'top' | 'bottom';
   showAdjacentMonthDays?: boolean;
   showDayQuickOptions?: boolean;

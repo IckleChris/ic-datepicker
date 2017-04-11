@@ -38,6 +38,7 @@ export declare class IcDatepickerOptions {
     position: string;
     showAdjacentMonthDays: boolean;
     showDayQuickOptions: boolean;
+    showEmptyRow: boolean;
     stringModelFormat: string;
     private defaults;
     constructor(options: IcDatepickerOptionsInterface, icDatepickerService: IcDatepickerService);

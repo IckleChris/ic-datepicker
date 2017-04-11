@@ -49,6 +49,7 @@ export class IcDatepickerOptions {
   position: string;
   showAdjacentMonthDays: boolean;
   showDayQuickOptions: boolean;
+  showEmptyRow: boolean;
   stringModelFormat: string;
 
   private defaults = {
@@ -80,6 +81,7 @@ export class IcDatepickerOptions {
     position: 'bottom',
     showAdjacentMonthDays: true,
     showDayQuickOptions: true,
+    showEmptyRow: true,
     stringModelFormat: 'YYYY-MM-DD'
   };
 
@@ -124,6 +126,7 @@ export class IcDatepickerOptions {
     this.position = options.position || this.defaults.position as datepickerPosition;
     this.showAdjacentMonthDays = (null == options.showAdjacentMonthDays) ? this.defaults.showAdjacentMonthDays : options.showAdjacentMonthDays;
     this.showDayQuickOptions = (null == options.showDayQuickOptions) ? this.defaults.showDayQuickOptions : options.showDayQuickOptions;
+    this.showEmptyRow = (null == options.showEmptyRow) ? this.defaults.showEmptyRow : options.showEmptyRow;
     this.stringModelFormat = options.stringModelFormat || this.defaults.stringModelFormat;
 
     this.dayQuickOptions = this.buildDayQuickOptions(options.dayQuickOptions || this.defaults.dayQuickOptions);

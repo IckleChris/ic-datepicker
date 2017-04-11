@@ -41,6 +41,7 @@ var IcDatepickerOptions = (function () {
             position: 'bottom',
             showAdjacentMonthDays: true,
             showDayQuickOptions: true,
+            showEmptyRow: true,
             stringModelFormat: 'YYYY-MM-DD'
         };
         if (options.attrs) {
@@ -80,6 +81,7 @@ var IcDatepickerOptions = (function () {
         this.position = options.position || this.defaults.position;
         this.showAdjacentMonthDays = (null == options.showAdjacentMonthDays) ? this.defaults.showAdjacentMonthDays : options.showAdjacentMonthDays;
         this.showDayQuickOptions = (null == options.showDayQuickOptions) ? this.defaults.showDayQuickOptions : options.showDayQuickOptions;
+        this.showEmptyRow = (null == options.showEmptyRow) ? this.defaults.showEmptyRow : options.showEmptyRow;
         this.stringModelFormat = options.stringModelFormat || this.defaults.stringModelFormat;
         this.dayQuickOptions = this.buildDayQuickOptions(options.dayQuickOptions || this.defaults.dayQuickOptions);
     }

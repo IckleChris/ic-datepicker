@@ -82,14 +82,16 @@ export class IcDatepickerService {
     endDays = 7 - period.subtract(1, 'day').isoWeekday();
 
     /*
-     * If the number of rendered weeks is 5, pad the datepicker with an extra week to maintain
-     * a consistent component height. This is more important when the datepicker is positioned
-     * top, to ensure that the month toggle buttons do not move during use.
+     * If the showEmptyRow config option is true, and If the number of rendered weeks is 5, pad the datepicker with
+     * an extra week to maintain a consistent component height. This is more important when the datepicker is
+     * positioned top, to ensure that the month toggle buttons do not move during use.
      */
-    let numRows = Math.ceil(periodDays.length / 7);
+    if (options.showEmptyRow) {
+      let numRows = Math.ceil(periodDays.length / 7);
 
-    if (numRows < 6) {
-      endDays += (6 - numRows) * 7;
+      if (numRows < 6) {
+        endDays += (6 - numRows) * 7;
+      }
     }
 
     periodDays = [...periodDays, ...this.buildPlaceholderDays(endDays)];
