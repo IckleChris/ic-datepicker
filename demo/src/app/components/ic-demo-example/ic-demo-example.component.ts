@@ -71,6 +71,7 @@ export class IcDemoExampleComponent implements OnInit {
       modelType: 'string',
       position: 'bottom',
       showDayQuickOptions: true,
+      showEmptyRow: true,
       stringModelFormat: 'YYYY-MM-DD'
     };
 

@@ -64,6 +64,7 @@ export class DatepickerConfigFormComponent implements OnInit, OnChanges {
       minDate: new FormControl(),
       position: new FormControl(),
       showDayQuickOptions: new FormControl(),
+      showEmptyRow: new FormControl(),
       stringModelFormat: new FormControl()
     });
 
