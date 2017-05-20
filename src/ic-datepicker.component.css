@@ -1,0 +1,206 @@
+.ic-datepicker-container {
+    position: relative;
+}
+
+.ic-datepicker-container > input[readonly] {
+    background: #ffffff;
+}
+
+.ic-datepicker {
+    position: absolute;
+    background: #ffffff;
+    width: 270px;
+    z-index: 1000;
+    -webkit-box-shadow: 0 0 10px 2px rgba(50, 50, 50, 0.25);
+    -moz-box-shadow: 0 0 10px 2px rgba(50, 50, 50, 0.25);
+    box-shadow: 0 0 10px 2px rgba(50, 50, 50, 0.25);
+}
+
+.ic-datepicker.top {
+    transform-origin: 0 100%;
+    bottom: 48px;
+}
+
+.ic-datepicker.bottom {
+    top: 48px;
+}
+
+.ic-datepicker .cell {
+    width: calc(100% / 7);
+    font-size: 14px;
+    height: 38px;
+    display: inline-block;
+    text-align: center;
+    background: #ffffff;
+    font-weight: 300;
+    color: #484848;
+    border: 1px solid #f0f0f0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.ic-datepicker .cell.selected {
+    background: #E16756;
+    border: 1px solid #E17656;
+    color: #ffffff;
+}
+
+.ic-datepicker .cell[disabled]:hover {
+    cursor: not-allowed;
+}
+
+.ic-datepicker .cell:not([disabled]):not(.selected):not(.day-label):hover {
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+.ic-datepicker .cell.year {
+    width: calc(100% / 5);
+}
+
+.ic-datepicker .ic-datepicker-header-bar {
+    display: flex;
+    align-items: center;
+    background: #E16756;
+    color: #ffffff;
+}
+
+.ic-datepicker .ic-datepicker-header-bar .action {
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ic-datepicker .ic-datepicker-header-bar .header-title {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 34px;
+    width: calc((100% / 7) * 5);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ic-datepicker .ic-datepicker-header-bar .header-title.year-title {
+    margin-left: calc(100% / 7);
+}
+
+.ic-datepicker-container .ic-datepicker .ic-datepicker-header-bar .header-title:not(.year-title):hover,
+.ic-datepicker-container .ic-datepicker .ic-datepicker-header-bar .cell.action:hover {
+    background: #ca5c4d;
+    cursor: pointer;
+}
+
+.ic-datepicker .ic-datepicker-year-select-options .close-year-select {
+    display: block;
+}
+
+.ic-datepicker .ic-datepicker-day-labels .day-label {
+    line-height: 38px;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ic-datepicker .ic-datepicker-dates .date {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.ic-datepicker .ic-datepicker-dates .date span {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    line-height: 38px;
+}
+
+.ic-datepicker .date.today:not(.selected),
+.ic-datepicker .date.this-year:not(.selected) {
+    color: #E16756;
+}
+
+.ic-datepicker .ic-datepicker-dates .date.placeholder {
+    background: #fafafa;
+}
+
+.ic-datepicker .ic-datepicker-dates .date[disabled]:not(.placeholder) {
+    background: #f3f3f3;
+    color: #909090;
+}
+
+.ic-datepicker .quick-options {
+    text-align: center;
+}
+
+.ic-datepicker .quick-options .quick-option {
+    width: calc(100% / 2);
+}
+
+.ic-datepicker .year-list .toggle-years {
+    width: 100%;
+    background: #f0f0f0;
+    font-weight: 300;
+    color: #484848;
+    border: 1px solid #f0f0f0;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ic-datepicker .year-list .toggle-years:hover {
+    background: #ececec;
+    cursor: pointer;
+}
+
+/* Chevrons - Credit Jonathan Neal (https://codepen.io/jonneal/pen/kptBs) */
+.ic-datepicker .chevron {
+    box-sizing: content-box;
+}
+
+.ic-datepicker .chevron::before {
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.45em;
+    transform: rotate(-45deg);
+    width: 0.45em;
+}
+
+.ic-datepicker .chevron.chevron-up::before {
+    position: relative;
+    top: 0.2em;
+}
+
+.ic-datepicker .chevron.chevron-right::before {
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.ic-datepicker .chevron.chevron-down::before {
+    position: relative;
+    bottom: 0.2em;
+    transform: rotate(135deg);
+}
+
+.ic-datepicker .chevron.chevron-left::before {
+    left: 0.25em;
+    transform: rotate(-135deg);
+}

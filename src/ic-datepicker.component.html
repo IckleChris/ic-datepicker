@@ -1,62 +1,126 @@
 <div class="ic-datepicker-container">
-    <input
-            [(ngModel)]="selectedDay.formattedDate"
-            [ngClass]="options.inputClasses"
-            (click)="toggleDatepicker()"
-            [id]="mergedOptions.attrs.id"
-            [name]="mergedOptions.attrs.name"
-            [placeholder]="mergedOptions.attrs.placeholder"
-            [tabindex]="mergedOptions.attrs.tabindex"
-            type="text"
-    >
+  <input
+      [value]="getInputValue()"
+      [ngClass]="options.inputClasses"
+      (click)="toggleDatepicker()"
+      [attr.id]="mergedOptions.attrs.id"
+      [attr.name]="mergedOptions.attrs.name"
+      [attr.placeholder]="mergedOptions.attrs.placeholder"
+      [attr.tabindex]="mergedOptions.attrs.tabindex"
+      [attr.readonly]="mergedOptions.attrs.readonly"
+      type="text"
+  >
 
-    <div [style.display]="datepickerIsOpen ? 'block' : 'none'" [ngClass]="mergedOptions.position" class="ic-datepicker">
-        <div [style.display]="yearSelectMode ? 'none' : 'flex'" class="ic-datepicker-month-toggles">
-            <button (click)="showPreviousMonth()" type="button" class="cell month-toggle">
-                <i [ngClass]="mergedOptions.icons.previousMonth"></i>
-            </button>
+  <div [style.display]="datepickerIsOpen ? 'block' : 'none'" [ngClass]="mergedOptions.position" class="ic-datepicker">
+    <div [style.display]="yearSelectMode ? 'none' : 'flex'" class="ic-datepicker-header-bar">
+      <button
+          (click)="showMonth('previous')"
+          [style.visibility]="previousMonthToggleActive ? 'visible' : 'hidden'"
+          type="button"
+          class="cell action previous-month"
+      >
+        <i [ngClass]="mergedOptions.icons.previousMonth.classes">
+          {{ mergedOptions.icons.previousMonth.content }}
+        </i>
+      </button>
 
-            <h3 (click)="showYearSelectMode()" class="month-title">
-                {{ currentPeriod.format('MMMM YYYY') }}
-            </h3>
+      <h3 (click)="showYearSelectMode()" class="header-title">
+        {{ currentPeriod.format('MMMM YYYY') }}
+      </h3>
 
-            <button (click)="showNextMonth()" type="button" class="cell month-toggle">
-                <i [ngClass]="mergedOptions.icons.nextMonth"></i>
-            </button>
-        </div>
-
-        <div [style.display]="yearSelectMode ? 'block' : 'none'" class="ic-datepicker-year-select-options">
-            <button (click)="hideYearSelectMode()" type="button" class="close-year-select">
-                &times;
-            </button>
-        </div>
-
-        <div [style.display]="yearSelectMode ? 'none' : 'block'">
-            <div class="ic-datepicker-day-labels">
-            <span *ngFor="let dayLabel of dayLabels" class="cell day-label">
-              {{ dayLabel }}
-            </span>
-            </div>
-
-            <div class="ic-datepicker-dates">
-                <button
-                        *ngFor="let day of periodDays"
-                        (click)="setSelectedDay($event, day)"
-                        [ngClass]="{ today: day.isToday, selected: day.isSelected, weekend: day.isWeekend }"
-                        [disabled]="day.isPlaceholder"
-                        type="button"
-                        class="cell date"
-                >
-                    <span *ngIf="day.isPlaceholder">&nbsp;</span>
-                    <span *ngIf="!day.isPlaceholder">
-                {{ day.moment.format('D') }}
-              </span>
-                </button>
-            </div>
-        </div>
-
-        <div [style.display]="yearSelectMode ? 'block' : 'none'">
-            Years
-        </div>
+      <button
+          (click)="showMonth('next')"
+          [style.visibility]="nextMonthToggleActive ? 'visible' : 'hidden'"
+          type="button"
+          class="cell action next-month"
+      >
+        <i [ngClass]="mergedOptions.icons.nextMonth.classes">
+          {{ mergedOptions.icons.nextMonth.content }}
+        </i>
+      </button>
     </div>
+
+    <div [style.display]="yearSelectMode ? 'flex' : 'none'" class="ic-datepicker-header-bar">
+      <h3 class="header-title year-title">
+        {{ yearOptions[0].formatted }} - {{ yearOptions[yearOptions.length - 1].formatted }}
+      </h3>
+
+      <button (click)="hideYearSelectMode()" type="button" class="cell action close-year-select">
+        &times;
+      </button>
+    </div>
+
+    <div [style.display]="yearSelectMode ? 'none' : 'block'">
+      <div class="ic-datepicker-day-labels">
+        <span *ngFor="let dayLabel of dayLabels" class="cell day-label">
+          {{ dayLabel }}
+        </span>
+      </div>
+
+      <div class="ic-datepicker-dates">
+        <button
+            *ngFor="let day of periodDays"
+            (click)="setSelectedDay(day, $event)"
+            [ngClass]="day.classes"
+            [class.today]="day.isToday"
+            [class.selected]="day.isSelected"
+            [class.weekend]="day.isWeekend"
+            [class.placeholder]="day.isPlaceholder"
+            [disabled]="isDisabled || day.isPlaceholder || (day.isWeekend && mergedOptions.disableWeekends) || day.isDisabled"
+            type="button"
+            class="cell date"
+        >
+          <span *ngIf="day.isPlaceholder">&nbsp;</span>
+          <span *ngIf="!day.isPlaceholder">
+            {{ day.moment.format('D') }}
+          </span>
+        </button>
+      </div>
+
+      <div *ngIf="mergedOptions.showDayQuickOptions" class="quick-options day-quick-options">
+        <button
+            *ngFor="let option of mergedOptions.dayQuickOptions"
+            [hidden]="option.isDisabled"
+            (click)="setSelectedDay(option.datepickerDay, $event)"
+            [ngClass]="{ selected: (selectedDay && option.date.isSame(selectedDay.moment, 'day')) }"
+            [disabled]="isDisabled"
+            type="button"
+            class="cell quick-option"
+        >
+          {{ option.label }}
+        </button>
+      </div>
+    </div>
+
+    <div [style.display]="yearSelectMode ? 'block' : 'none'" class="year-list">
+      <div class="ic-datepicker-dates">
+        <button (click)="showYears('previous')" type="button" class="cell toggle-years previous">
+          <span>
+            <i [ngClass]="mergedOptions.icons.previousYears.classes">
+              {{ mergedOptions.icons.previousYears.content }}
+            </i>
+          </span>
+        </button>
+
+        <button
+            *ngFor="let year of yearOptions"
+            (click)="setSelectedYear(year)"
+            [ngClass]="{ 'this-year': year.isThisYear, selected: year.isSelected }"
+            [disabled]="year.isDisabled"
+            type="button"
+            class="cell date year"
+        >
+          {{ year.formatted }}
+        </button>
+
+        <button (click)="showYears('next')" type="button" class="cell toggle-years next">
+          <span>
+            <i [ngClass]="mergedOptions.icons.nextYears.classes">
+              {{ mergedOptions.icons.nextYears.content }}
+            </i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,1 +1,0 @@
-{"version":3,"sources":["../index.ts"],"names":[],"mappings":"AAAA,OAAO,EACL,kBAAkB,EAClB,qBAAqB,EACrB,mBAAmB,EAEpB,MAAM,aAAa,CAAC","file":"index.js","sourceRoot":"","sourcesContent":["export {\n  IcDatepickerModule,\n  IcDatepickerComponent,\n  IcDatepickerService,\n  IcDatepickerOptionsInterface\n} from './src/index';\n"]}

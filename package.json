@@ -16,7 +16,7 @@
     "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.js dist/index.js.map dist/LICENCE dist/README.md",
     "bundling": "webpack",
     "copy": "copyfiles LICENSE README.md dist",
-    "build": "npm run cleanup && ngc -p tsconfig.build.json && npm run bundling && npm run copy",
+    "build": "npm run cleanup && npm run bundling && npm run copy",
     "gh-pages": "git subtree push --prefix demo/dist origin gh-pages"
   },
   "keywords": [
@@ -40,13 +40,17 @@
     "moment": "^2.17.1"
   },
   "devDependencies": {
+    "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
-    "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
     "@types/jasmine": "^2.2.30",
+    "@types/node": "^7.0.21",
+    "@types/requirejs": "^2.1.29",
     "angular-library-builder": "^1.3.6",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^3.1.3",
     "copyfiles": "^1.0.0",
     "jasmine": "^2.5.3",
     "jasmine-spec-reporter": "^3.2.0",
@@ -55,6 +59,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^2.0.2",
+    "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "ts-loader": "^2.0.1",
     "tslint": "^4.4.2",
