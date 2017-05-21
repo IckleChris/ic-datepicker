@@ -21,8 +21,8 @@ import { IcDatepickerYear } from './interfaces/ic-datepicker-year';
       multi: true
     }
   ],
-  templateUrl: 'ic-datepicker.component.html',
-  styleUrls: ['ic-datepicker.component.css']
+  templateUrl: './ic-datepicker.component.html',
+  styleUrls: ['./ic-datepicker.component.css']
 })
 export class IcDatepickerComponent implements ControlValueAccessor, OnChanges, OnDestroy, OnInit {
   @Input() options: IcDatepickerOptionsInterface = {};

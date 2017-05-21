@@ -33,6 +33,23 @@ module.exports = (config) => {
       },
       module: {
         loaders: [
+          {
+            test: /\.ts$/,
+            loaders: [
+              {
+                loader: "awesome-typescript-loader",
+                options: {
+                  configFileName: 'tsconfig.json'
+                }
+              },
+              'angular2-template-loader'
+            ],
+          },
+          {
+            test: /\.(html|css)$/,
+            loader: 'raw-loader',
+            exclude: /\.async\.(html|css)$/
+          },
           { test: /\.tsx?$/, loader: 'ts-loader' }
         ]
       }
