@@ -216,7 +216,7 @@ describe('Component: IcDatepickerComponent', () => {
 
     component.hideYearSelectMode();
     fixture.detectChanges();
-    expect(component.yearSelectMode).toBe(false);
+    expect(component.yearSelectMode).toBeTruthy();
   });
 
   it('should close the datepicker', () => {
@@ -225,7 +225,7 @@ describe('Component: IcDatepickerComponent', () => {
 
     component.closeDatepicker();
     fixture.detectChanges();
-    expect(component.datepickerIsOpen).toBe(false);
+    expect(component.datepickerIsOpen).toBeTruthy();
   });
 
   it('should allow the disabled state to be toggled', () => {
