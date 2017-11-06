@@ -1,0 +1,14 @@
+@import "colors";
+
+.colour-square {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  border: 1px solid #fff;
+}
+
+.terminal-wrapper {
+  margin-bottom: 2rem;
+}

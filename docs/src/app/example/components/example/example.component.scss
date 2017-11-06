@@ -1,0 +1,26 @@
+@import "variables";
+
+.full-height {
+  min-height: calc(100vh - 56px);
+}
+
+.config-form-wrapper {
+  padding: 2rem;
+}
+
+.datepicker-container {
+  width: 100%;
+}
+
+
+:host ::ng-deep .ic-datepicker .highlight {
+  background: #FCF474;
+}
+
+
+.example-datepicker-column {
+  pre {
+    font-size: 0.95em;
+    padding: 1rem;
+  }
+}

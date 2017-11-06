@@ -1,7 +1,7 @@
-import * as Moment from 'moment';
+import moment from 'moment';
 
 import { IcDatepickerQuickOption } from './ic-datepicker-quick-option';
-import { IcCustomDayClass } from "./ic-custom-day-class";
+import { IcCustomDayClass } from './ic-custom-day-class';
 import { IcDatepickerIcon } from './ic-datepicker-icon';
 
 export interface IcDatepickerOptionsInterface {
@@ -27,8 +27,8 @@ export interface IcDatepickerOptionsInterface {
     previousYears?: IcDatepickerIcon
   };
   inputClasses?: string[];
-  maxDate?: Moment.Moment;
-  minDate?: Moment.Moment;
+  maxDate?: moment.Moment;
+  minDate?: moment.Moment;
   modelType?: string;
   showEmptyRow?: boolean;
   position?: 'top' | 'bottom';

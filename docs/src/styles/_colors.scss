@@ -1,0 +1,27 @@
+// Colours
+$white: #f7f6f5;
+$dark: #546A76;
+$brand: #64B6AC;
+
+// Overrides
+$body-bg: $white;
+$body-color: $dark;
+$code-color: $white;
+$code-bg: $dark;
+
+$theme-colors: (
+  primary: $brand
+);
+
+// Common Classes
+.primary-gradient {
+  background: $brand;
+  background: -webkit-linear-gradient(to right bottom, $brand, darken($brand, 15%));
+  background: linear-gradient(to right bottom, $brand, darken($brand, 15%));
+}
+
+.btn.btn-primary {
+  color: $white;
+}
+
+

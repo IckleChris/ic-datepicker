@@ -1,0 +1,43 @@
+<div class="container-fluid api-doc-page">
+  <div class="row">
+    <div class="col-lg-3 col-xl-2 page-sidebar">
+      <h2 class="sidebar-title">
+        Options
+
+        <span class="option-dropdown-list-container">
+          <label for="option-dropdown-list" class="sr-only">
+            Option
+          </label>
+          <select
+            [ngModel]="activeOption"
+            (ngModelChange)="onOptionChange($event)"
+            id="option-dropdown-list"
+            class="form-control option-dropdown-list"
+          >
+            <option *ngFor="let option of options" [ngValue]="option">
+              {{ option.label }}
+            </option>
+          </select>
+        </span>
+      </h2>
+
+      <div class="btn-group-vertical option-list">
+        <a
+          *ngFor="let option of options"
+          [ngClass]="{ active: option.label === activeOption.label }"
+          [routerLink]="['/options', option.label]"
+          class="btn btn-block btn-link sidebar-link"
+        >
+          {{ option.label }}
+        </a>
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-xl-10 page-content">
+      <markdown
+        *ngIf="activeOption"
+        [src]="getMarkdownPathByConfigOption(activeOption)"
+      ></markdown>
+    </div>
+  </div>
+</div>

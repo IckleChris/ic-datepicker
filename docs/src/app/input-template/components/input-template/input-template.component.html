@@ -1,0 +1,50 @@
+<div class="page-title-bar">
+  <div class="container">
+    <h2 class="page-title">
+      Input Template Customisation
+    </h2>
+  </div>
+</div>
+
+<div class="container">
+  <p>
+    By default, a simple <code>&lt;input/&gt;</code> element is rendered in place of the
+    <code>&lt;ic-datepicker/&gt;</code> element. This can be easily styled by providing classes to the
+    <a [routerLink]="'/options/inputClasses'"><code>inputClasses</code></a> option.
+  </p>
+
+  <p>
+    This however does not always suffice, as some frontend frameworks require additional markup to function correctly
+    (or you may wish you use a different element altogether). This can be achieved by providing a
+    <a href="https://angular.io/api/core/TemplateRef"><code>templateRef</code></a> to the
+    <code>&lt;ic-datepicker/&gt;</code> element like so;
+  </p>
+
+  <app-terminal>
+    <span class="title">
+      Angular Material Template Example
+    </span>
+
+    <i class="fa fa-lg fa-code icon"></i>
+
+    <pre class="code code-command">
+&lt;ic-datepicker [inputTemplate]="materialInputTemplate"&gt;&lt;/ic-datepicker&gt;
+
+&lt;-- Custom Template --&gt;
+&lt;ng-template #materialInputTemplate let-inputValue="getInputValue()"&gt;
+  &lt;mat-form-field&gt;
+    &lt;input matInput [value]="inputValue" placeholder="Material Example"&gt;
+  &lt;/mat-form-field&gt;
+&lt;/ng-template&gt;
+    </pre>
+  </app-terminal>
+
+  <p class="mt-3">
+    A custom template is defined and assigned a template variable <code>#materialInputTemplate</code>, which is then
+    provided to <code>[inputTemplate]</code>. This template has access to a context method <code>getInputValue()</code>,
+    the result of which is assigned to a local variable <code>let-inputValue</code>. This leaves <code>inputValue</code>
+    available to the template content.
+  </p>
+
+  <p>This custom template can contain any HTML, and is not restricted to form fields.</p>
+</div>

@@ -1,10 +1,9 @@
-import * as Moment from 'moment';
+import moment from 'moment';
 
 import { IcDatepickerOptionsInterface } from '../interfaces/ic-datepicker-options';
 import { IcDatepickerQuickOption } from '../interfaces/ic-datepicker-quick-option';
-import { IcDatepickerDay } from '../interfaces/ic-datepicker-day';
 import { IcDatepickerService } from '../services/ic-datepicker.service';
-import { IcCustomDayClass } from "../interfaces/ic-custom-day-class";
+import { IcCustomDayClass } from '../interfaces/ic-custom-day-class';
 import { IcDatepickerIcon } from '../interfaces/ic-datepicker-icon';
 
 type datepickerPosition = 'top' | 'bottom';
@@ -12,11 +11,11 @@ type datepickerPosition = 'top' | 'bottom';
 export const defaultDayQuickOptions = [
   {
     label: 'Today',
-    date: Moment()
+    date: moment()
   },
   {
     label: 'Tomorrow',
-    date: Moment().add(1, 'day')
+    date: moment().add(1, 'day')
   }
 ];
 
@@ -43,8 +42,8 @@ export class IcDatepickerOptions {
     previousYears: IcDatepickerIcon
   };
   inputClasses: string[];
-  maxDate?: Moment.Moment;
-  minDate?: Moment.Moment;
+  maxDate?: moment.Moment;
+  minDate?: moment.Moment;
   modelType: string;
   position: string;
   showAdjacentMonthDays: boolean;

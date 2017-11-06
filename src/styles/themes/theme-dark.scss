@@ -1,0 +1,15 @@
+$colors: (
+  "primary": #546A76,
+  "cell-bg": #697D87,
+  "cell-color": #fff,
+  "cell-border-color": #627681,
+  "bg-color": #778992,
+  "disabled-cell-bg": #5B707C,
+  "disabled-cell-color": #fff,
+  "today-bg": #697D87,
+  "today-color": #fff
+);
+
+@import "../theme-builder.mixin";
+
+@include theme-builder();

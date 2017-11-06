@@ -1,0 +1,83 @@
+@import "colors";
+
+@mixin theme-builder() {
+  $primary:               map_get($colors, "primary");
+  $primary-text:          map_get($colors, "primary-text");
+  $cell-bg:               map_get($colors, "cell-bg");
+  $cell-color:            map_get($colors, "cell-color");
+  $cell-border-color:     map_get($colors, "cell-border-color");
+  $bg-color:              map_get($colors, "bg-color");
+  $disabled-cell-bg:      map_get($colors, "disabled-cell-bg");
+  $disabled-cell-color:   map_get($colors, "disabled-cell-color");
+  $today-bg:              map_get($colors, "today-bg");
+  $today-color:           map_get($colors, "today-color");
+
+  .ic-datepicker-container {
+    > input[readonly] {
+      background: $cell-bg;
+    }
+  }
+
+  .ic-datepicker-container .ic-datepicker {
+    background: $cell-bg;
+
+    .ic-datepicker-header-bar {
+      background: $primary;
+      color: $primary-text;
+
+      .header-title:not(.year-title):hover, .cell.action:hover {
+        background: darken($primary, 10%);
+      }
+
+      .action {
+        color: $primary-text;
+      }
+    }
+
+    .cell {
+      background: $cell-bg;
+      color: $cell-color;
+      border-color: $cell-border-color;
+
+      &.selected {
+        background: $primary;
+        color: $primary-text;
+      }
+
+      &:not([disabled]):not(.selected):not(.day-label):hover {
+        background: darken($primary, 10%);
+        color: $primary-text;
+        cursor: pointer;
+      }
+    }
+
+    .date {
+      &.placeholder {
+        background: $bg-color;
+      }
+
+      &[disabled]:not(.placeholder) {
+        background: $disabled-cell-bg;
+        color: $disabled-cell-color;
+      }
+
+      &.today:not(.selected),
+      &.this-year:not(.selected) {
+        color: $today-color;
+
+        &:not([disabled]) {
+          background: $today-bg;
+        }
+      }
+    }
+
+
+    .year-list .toggle-years {
+      color: $cell-color;
+
+      &:hover {
+        border: none;
+      }
+    }
+  }
+}

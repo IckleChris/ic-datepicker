@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/services/ic-datepicker.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/services/</a> ic-datepicker.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.05% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>49/59</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>15/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.46% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>47/57</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
+import moment from 'moment';
+import { IcDatepickerDay } from '../interfaces/ic-datepicker-day';
+import { IcDatepickerOptions } from '../models/ic-datepicker-options';
+import { IcCustomDayClass } from '../interfaces/ic-custom-day-class';
+&nbsp;
+@Injectable()
+export class IcDatepickerService {
+&nbsp;
+  /**
+   * Builds a single Datepicker day instance based on the provided moment object
+   *
+   * @param day
+   * @param options
+   * @param selectedDayMoment
+   * @returns {{formattedDate: string, isSelected: boolean, isToday: boolean, isWeekend: boolean, moment: Moment}}
+   */
+  buildDatepickerDay(
+    day: moment.Moment,
+    options: IcDatepickerOptions,
+    selectedDayMoment: moment.Moment | null = null
+  ): IcDatepickerDay {
+    let isToday = day.isSame(moment(), 'day');
+    let isWeekend = ([6, 7].indexOf(day.isoWeekday()) &gt; -1);
+    let isDisabled = options.disableDayFn(day);
+    let isSelected = (!!selectedDayMoment &amp;&amp; day.isSame(selectedDayMoment, 'day'));
+    let classes: string[] = [];
+&nbsp;
+    if (!isDisabled &amp;&amp; options.minDate) {
+      isDisabled = day.isBefore(options.minDate);
+    }
+&nbsp;
+    if (!isDisabled &amp;&amp; options.maxDate) {
+      isDisabled = day.isAfter(options.maxDate);
+    }
+&nbsp;
+    options.customDayClasses.forEach(<span class="fstat-no" title="function not covered" >(customDayClass: IcCustomDayClass)</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >      let applyClass = customDayClass.callback(day);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (applyClass) {</span>
+<span class="cstat-no" title="statement not covered" >        classes = classes.concat(customDayClass.classes);</span>
+      }
+    });
+&nbsp;
+    return {
+      classes: classes,
+      formattedDate: day.format(options.displayFormat),
+      isDisabled: isDisabled,
+      isSelected: isSelected,
+      isToday: isToday,
+      isWeekend: isWeekend,
+      moment: day.clone()
+    };
+  }
+&nbsp;
+  /**
+   * Returns an array of Day objects representing the month of the provided Moment instance
+   *
+   * @param month
+   * @param selectedDayMoment
+   * @param options
+   * @returns {IcDatepickerDay[]}
+   */
+  buildCalendarMonth(
+    month: moment.Moment,
+    options: IcDatepickerOptions,
+    <span class="missing-if-branch" title="else path not taken" >E</span>selectedDayMoment: moment.Moment | null = null
+  ): IcDatepickerDay[] {
+    let period = month.clone().startOf('month');
+    let periodDays: IcDatepickerDay[] = [];
+    let periodEnd = period.clone().endOf('month');
+    let dayNumber = period.isoWeekday();
+    let endDays: number;
+&nbsp;
+    periodDays = [...periodDays, ...this.buildPlaceholderDays(dayNumber - 1)];
+&nbsp;
+    while (period.isSameOrBefore(periodEnd)) {
+      periodDays.push(this.buildDatepickerDay(period, options, selectedDayMoment));
+      period.add(1, 'day');
+    }
+&nbsp;
+    endDays = 7 - period.subtract(1, 'day').isoWeekday();
+&nbsp;
+    /*
+     * If the showEmptyRow config option is true, and If the number of rendered weeks is 5, pad the datepicker with
+     * an extra week to maintain a consistent component height. This is more important when the datepicker is
+     * positioned top, to ensure that the month toggle buttons do not move during use.
+     */
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (options.showEmptyRow) {
+      let numRows = Math.ceil(periodDays.length / 7);
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (numRows &lt; 6) {
+<span class="cstat-no" title="statement not covered" >        endDays += (6 - numRows) * 7;</span>
+      }
+    }
+&nbsp;
+    periodDays = [...periodDays, ...this.buildPlaceholderDays(endDays)];
+&nbsp;
+    return periodDays;
+  }
+&nbsp;
+  /**
+   * Builds the day label headers for the datepicker columns
+   *
+   * @returns {string[]}
+   */
+  buildDayLabels() {
+    let labels: string[] = [];
+    let momentObj = moment().startOf('isoWeek');
+&nbsp;
+    for (let i = 0; i &lt; 7; i++) {
+      labels.push(momentObj.format('dd'));
+&nbsp;
+      momentObj.add(1, 'day');
+    }
+&nbsp;
+    return labels;
+  }
+&nbsp;
+  /**
+   * Returns a boolean representing whether the provided date is valid
+   *
+   * @param date
+   * @param options
+   */
+<span class="fstat-no" title="function not covered" >  dateIsValid(date: moment.Moment, options: IcDatepickerOptions)</span> {
+<span class="cstat-no" title="statement not covered" >    let isValid = date.isValid();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (isValid &amp;&amp; options.minDate) {</span>
+<span class="cstat-no" title="statement not covered" >      isValid = date.isSameOrAfter(options.minDate, 'day');</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (isValid &amp;&amp; options.maxDate) {</span>
+<span class="cstat-no" title="statement not covered" >      isValid = date.isSameOrBefore(options.maxDate, 'day');</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return isValid;</span>
+  }
+&nbsp;
+  /**
+   * Build the provided number of placeholder days
+   *
+   * @param quantity
+   * @returns {IcDatepickerDay[]}
+   */
+  private buildPlaceholderDays(quantity: number) {
+    let placeholderDays: IcDatepickerDay[] = [];
+&nbsp;
+    for (let i = 0; i &lt; quantity; i++) {
+      placeholderDays.push({
+        isPlaceholder: true,
+        moment: moment()
+      });
+    }
+&nbsp;
+    return placeholderDays;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Oct 29 2017 20:34:10 GMT+0000 (GMT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

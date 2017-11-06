@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark primary-gradient">
+  <a class="navbar-brand" routerLink="''">
+    IC Datepicker
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="main-navbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="main-navbar">
+    <ul (click)="isCollapsed = true" class="navbar-nav">
+      <li
+        *ngFor="let link of links"
+        routerLinkActive="active"
+        class="nav-item"
+      >
+        <a [routerLink]="link.routerLink" class="nav-link">
+          {{ link.label }}
+        </a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a [href]="githubUrl" class="nav-link active">
+          <i class="fa fa-lg fa-github mr-2"></i>
+          View on Github
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

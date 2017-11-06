@@ -1,0 +1,93 @@
+<div class="container-fluid installation">
+  <div class="row justify-content-center installation-step">
+    <div class="col-xl-8">
+      <app-terminal>
+        <span class="title">
+          Install
+        </span>
+
+        <span class="code">
+          <code class="code-command"><span class="no-mouse">$ </span>npm install --save ic-datepicker</code>
+          <code class="code-command subtext"><span class="no-mouse">&nbsp;</span>(or)</code>
+          <code class="code-command"><span class="no-mouse">$ </span>yarn add ic-datepicker</code>
+        </span>
+
+        <i class="fa fa-lg fa-terminal icon"></i>
+      </app-terminal>
+    </div>
+  </div>
+
+  <div class="row justify-content-center installation-step">
+    <div class="col-xl-8">
+      <app-terminal>
+        <span class="title">
+          Import
+        </span>
+
+        <span class="code">
+          <pre class="code-command">
+import &#123; IcDatepickerModule &#125; from 'ic-datepicker';
+
+@NgModule(&#123;
+  imports: [
+    ...
+    IcDatepickerModule,
+  ],
+&#125;)
+class AppModule &#123; &#125;</pre>
+        </span>
+
+        <i class="fa fa-lg fa-code icon"></i>
+      </app-terminal>
+    </div>
+  </div>
+
+  <div class="row justify-content-center installation-step">
+    <div class="col-xl-8">
+      <app-terminal>
+        <span class="title">
+          Style
+        </span>
+
+        <span class="code">
+          <pre class="code-command">
+// Angular CLI
+"styles": [
+  "../node_modules/ic-datepicker/themes/theme-default.css"
+],
+
+// Other
+&lt;link src="node_modules/ic-datepicker/themes/theme-default.css" rel="stylesheet"&gt;</pre>
+        </span>
+
+        <i class="fa fa-lg fa-code icon"></i>
+      </app-terminal>
+    </div>
+  </div>
+
+  <div class="row justify-content-center installation-step">
+    <div class="col-xl-8">
+      <app-terminal>
+        <span class="title">
+          Use
+        </span>
+
+        <span class="code">
+          <pre class="code-command">
+&lt;ic-datepicker options="datepickerOptions"&gt;&lt;/ic-datepicker&gt;</pre>
+        </span>
+
+        <i class="fa fa-lg fa-code icon"></i>
+      </app-terminal>
+    </div>
+  </div>
+
+  <div class="row justify-content-center installation-step">
+    <div class="col-xl-8">
+      <a [routerLink]="['/example']" class="btn btn-block btn-primary">
+        View An Example
+      </a>
+    </div>
+  </div>
+</div>
+

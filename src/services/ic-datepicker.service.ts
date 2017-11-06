@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import * as Moment from 'moment';
+import moment from 'moment';
 import { IcDatepickerDay } from '../interfaces/ic-datepicker-day';
 import { IcDatepickerOptions } from '../models/ic-datepicker-options';
-import { IcCustomDayClass } from "../interfaces/ic-custom-day-class";
+import { IcCustomDayClass } from '../interfaces/ic-custom-day-class';
 
 @Injectable()
 export class IcDatepickerService {
@@ -16,11 +16,11 @@ export class IcDatepickerService {
    * @returns {{formattedDate: string, isSelected: boolean, isToday: boolean, isWeekend: boolean, moment: Moment}}
    */
   buildDatepickerDay(
-    day: Moment.Moment,
+    day: moment.Moment,
     options: IcDatepickerOptions,
-    selectedDayMoment: Moment.Moment | null = null
+    selectedDayMoment: moment.Moment | null = null
   ): IcDatepickerDay {
-    let isToday = day.isSame(Moment(), 'day');
+    let isToday = day.isSame(moment(), 'day');
     let isWeekend = ([6, 7].indexOf(day.isoWeekday()) > -1);
     let isDisabled = options.disableDayFn(day);
     let isSelected = (!!selectedDayMoment && day.isSame(selectedDayMoment, 'day'));
@@ -62,9 +62,9 @@ export class IcDatepickerService {
    * @returns {IcDatepickerDay[]}
    */
   buildCalendarMonth(
-    month: Moment.Moment,
+    month: moment.Moment,
     options: IcDatepickerOptions,
-    selectedDayMoment: Moment.Moment | null = null
+    selectedDayMoment: moment.Moment | null = null
   ): IcDatepickerDay[] {
     let period = month.clone().startOf('month');
     let periodDays: IcDatepickerDay[] = [];
@@ -106,7 +106,7 @@ export class IcDatepickerService {
    */
   buildDayLabels() {
     let labels: string[] = [];
-    let momentObj = Moment().startOf('isoWeek');
+    let momentObj = moment().startOf('isoWeek');
 
     for (let i = 0; i < 7; i++) {
       labels.push(momentObj.format('dd'));
@@ -123,7 +123,7 @@ export class IcDatepickerService {
    * @param date
    * @param options
    */
-  dateIsValid(date: Moment.Moment, options: IcDatepickerOptions) {
+  dateIsValid(date: moment.Moment, options: IcDatepickerOptions) {
     let isValid = date.isValid();
 
     if (isValid && options.minDate) {
@@ -149,7 +149,7 @@ export class IcDatepickerService {
     for (let i = 0; i < quantity; i++) {
       placeholderDays.push({
         isPlaceholder: true,
-        moment: Moment()
+        moment: moment()
       });
     }
 

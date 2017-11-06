@@ -1,0 +1,57 @@
+@import "variables";
+
+.page-sidebar {
+  min-height: calc(100vh - 56px);
+  padding: 0 !important;
+  background: $dark;
+  color: $white;
+  font-weight: 400;
+
+  @media (max-width: map_get($grid-breakpoints, 'lg')) {
+    min-height: 0;
+  }
+
+  .sidebar-title {
+    padding: 1.15rem 1rem;
+    margin: 0;
+    font-size: 1.3rem;
+    background: darken($dark, 15%);
+    font-weight: 600;
+  }
+
+  // Dropdown field of options (smaller devices)
+  .option-dropdown-list-container {
+    display: inline-block;
+
+    @media (min-width: map_get($grid-breakpoints, 'lg')) {
+      display: none;
+    }
+
+    .option-dropdown-list {
+      margin-left: 1rem;
+    }
+  }
+
+  // Expanded sidebar list of options (larger devices)
+  .option-list {
+    display: block;
+
+    @media (max-width: map_get($grid-breakpoints, 'lg')) {
+      display: none;
+    }
+  }
+
+  .sidebar-link {
+    padding: 0.5rem 1rem;
+    color: $white;
+    text-align: left;
+
+    &.active {
+      background: lighten($dark, 7.5%);
+    }
+  }
+}
+
+.page-content {
+  padding: 1rem;
+}

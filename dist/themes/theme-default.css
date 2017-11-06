@@ -1,0 +1,36 @@
+.ic-datepicker-container > input[readonly] {
+  background: #fff; }
+
+.ic-datepicker-container .ic-datepicker {
+  background: #fff; }
+  .ic-datepicker-container .ic-datepicker .ic-datepicker-header-bar {
+    background: #546A76;
+    color: #fff; }
+    .ic-datepicker-container .ic-datepicker .ic-datepicker-header-bar .header-title:not(.year-title):hover, .ic-datepicker-container .ic-datepicker .ic-datepicker-header-bar .cell.action:hover {
+      background: #3f4f58; }
+    .ic-datepicker-container .ic-datepicker .ic-datepicker-header-bar .action {
+      color: #fff; }
+  .ic-datepicker-container .ic-datepicker .cell {
+    background: #fff;
+    color: #484848;
+    border-color: #f0f0f0; }
+    .ic-datepicker-container .ic-datepicker .cell.selected {
+      background: #546A76;
+      color: #fff; }
+    .ic-datepicker-container .ic-datepicker .cell:not([disabled]):not(.selected):not(.day-label):hover {
+      background: #3f4f58;
+      color: #fff;
+      cursor: pointer; }
+  .ic-datepicker-container .ic-datepicker .date.placeholder {
+    background: #fafafa; }
+  .ic-datepicker-container .ic-datepicker .date[disabled]:not(.placeholder) {
+    background: #f3f3f3;
+    color: #909090; }
+  .ic-datepicker-container .ic-datepicker .date.today:not(.selected), .ic-datepicker-container .ic-datepicker .date.this-year:not(.selected) {
+    color: #546A76; }
+    .ic-datepicker-container .ic-datepicker .date.today:not(.selected):not([disabled]), .ic-datepicker-container .ic-datepicker .date.this-year:not(.selected):not([disabled]) {
+      background: #fff; }
+  .ic-datepicker-container .ic-datepicker .year-list .toggle-years {
+    color: #484848; }
+    .ic-datepicker-container .ic-datepicker .year-list .toggle-years:hover {
+      border: none; }

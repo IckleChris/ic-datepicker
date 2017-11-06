@@ -1,9 +1,9 @@
-import * as Moment from 'moment';
+import moment from 'moment';
 
 export interface IcDatepickerYear {
   formatted: string | null;
   isDisabled: boolean;
   isSelected: boolean;
   isThisYear: boolean;
-  moment: Moment.Moment;
+  moment: moment.Moment;
 }

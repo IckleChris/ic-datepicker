@@ -1,0 +1,87 @@
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+
+$terminal-bg: $dark;
+$terminal-color: $white;
+$terminal-border-radius: 6px;
+$terminal-button-bg: lighten($terminal-bg, 5%);
+$terminal-button-size: 14px;
+
+.terminal-window {
+  border-radius: 6px;
+}
+
+.code-command {
+  background: none;
+  color: $terminal-color;
+  display: block;
+
+  &.subtext {
+    opacity: 0.5;
+  }
+
+  .no-mouse {
+    user-select: none;
+    display: inline-block;
+    padding-right: 1rem;
+  }
+}
+
+.terminal-header {
+  background: darken($terminal-bg, 7.5%);
+  padding: 0.6rem 0.6rem 0.4rem 0.6rem;
+  position: relative;
+  border: {
+    top-left-radius: $terminal-border-radius;
+    top-right-radius: $terminal-border-radius;
+  };
+
+  .terminal-buttons {
+    position: absolute;
+    left: 0.6rem;
+    top: #{($terminal-button-size / 2) + 6px};
+
+    @media (max-width: map_get($grid-breakpoints, 'lg')) {
+      display: none;
+    }
+
+    .button {
+      background: $terminal-button-bg;
+      width: $terminal-button-size;
+      height: $terminal-button-size;
+      display: inline-block;
+      border-radius: 50%;
+
+      &:not(:last-of-type) {
+        margin-right: 0.2rem;
+      }
+    }
+  }
+
+  .terminal-title {
+    color: $terminal-color;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  .icon {
+    color: $terminal-color;
+    position: absolute;
+    right: 0.6rem;
+    top: #{($terminal-button-size / 2) + 6px};
+
+    @media (max-width: map_get($grid-breakpoints, 'lg')) {
+      display: none;
+    }
+  }
+}
+
+.terminal-body {
+  background: $terminal-bg;
+  padding: 1rem;
+  border: {
+    bottom-left-radius: $terminal-border-radius;
+    bottom-right-radius: $terminal-border-radius;
+  };
+}

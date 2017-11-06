@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <div *ngIf="exampleDatepickerConfig" class="row">
+    <div class="col-md-6 page-sidebar example-datepicker-column">
+      <h2 class="sidebar-title">
+        Example
+      </h2>
+
+      <div class="d-flex align-items-center full-height">
+        <div class="datepicker-container">
+          <div class="row">
+            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+              <form [formGroup]="exampleDatepickerForm" (ngSubmit)="onSubmit(exampleDatepickerForm)" [ngSwitch]="exampleDatepickerConfig.inputTemplate">
+                <!-- Bootstrap -->
+                <ic-datepicker
+                  *ngSwitchCase="'bootstrap'"
+                  formControlName="datepicker"
+                  [inputTemplate]="bootstrapInputTemplate"
+                  [options]="exampleDatepickerConfig"
+                ></ic-datepicker>
+
+                <!-- Material -->
+                <ic-datepicker
+                  *ngSwitchCase="'material'"
+                  formControlName="datepicker"
+                  [inputTemplate]="materialInputTemplate"
+                  [options]="exampleDatepickerConfig"
+                ></ic-datepicker>
+
+                <!-- HTML Element -->
+                <ic-datepicker
+                  *ngSwitchCase="'html'"
+                  formControlName="datepicker"
+                  [inputTemplate]="htmlInputTemplate"
+                  [options]="exampleDatepickerConfig"
+                ></ic-datepicker>
+
+                <!-- Default -->
+                <ic-datepicker
+                  *ngSwitchDefault
+                  formControlName="datepicker"
+                  [options]="exampleDatepickerConfig"
+                ></ic-datepicker>
+
+                <button type="submit" class="btn btn-block btn-primary mt-2">
+                  Submit to Console
+                </button>
+
+                <button (click)="clearDatepicker()" type="button" class="btn btn-block btn-secondary mt-2">
+                  Clear
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 config-form-wrapper">
+      <datepicker-config-form
+        [exampleDatepickerConfig]="exampleDatepickerConfig"
+        (onConfigChanged)="onConfigChanged($event)"
+      ></datepicker-config-form>
+    </div>
+  </div>
+</div>
+
+<!--
+  Custom Templates
+ -->
+
+<!-- Bootstrap  -->
+<ng-template #bootstrapInputTemplate let-inputValue="getInputValue()">
+  <div class="form-group">
+    <label for="my-datepicker">
+      Bootstrap Example
+    </label>
+
+    <div class="input-group">
+      <input [value]="inputValue" id="my-datepicker" type="text" class="form-control">
+      <span class="input-group-addon">
+        <i class="fa fa-calendar"></i>
+      </span>
+    </div>
+
+  </div>
+</ng-template>
+
+<!-- Material -->
+<ng-template #materialInputTemplate let-inputValue="getInputValue()">
+  <div class="form-group text-center">
+    <mat-form-field class="example-full-width">
+      <input matInput [value]="inputValue" id="my-datepicker" placeholder="Material Example">
+    </mat-form-field>
+  </div>
+</ng-template>
+
+<!-- Non-Input -->
+<ng-template #htmlInputTemplate let-inputValue="getInputValue()">
+  <p class="alert alert-success text-center">
+    <span *ngIf="inputValue">
+      You have selected: {{ inputValue }}
+    </span>
+
+    <span *ngIf="!inputValue">
+      Click to select a date
+    </span>
+  </p>
+</ng-template>

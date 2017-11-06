@@ -1,0 +1,64 @@
+<div class="page-title-bar">
+  <div class="container">
+    <h2 class="page-title">
+      Theming
+    </h2>
+  </div>
+</div>
+
+<div class="container">
+  <p class="alert alert-info">
+    To create a custom colour theme, simply create a variable map overriding the default colours, then import and use
+    the mixin provided.
+  </p>
+
+  <div class="terminal-wrapper">
+    <app-terminal>
+    <span class="title">
+      _customDatepickerTheme.scss
+    </span>
+
+      <span class="code">
+          <pre class="code-command">
+// Override the defaults (this must come before the mixin import)
+$colors: (
+  "primary": #546A76
+);
+
+@import "~ic-datepicker/styles/theme-builder.mixin";
+
+@include theme-builder();</pre>
+        </span>
+
+      <i class="fa fa-lg fa-code icon"></i>
+    </app-terminal>
+  </div>
+
+  <p class="alert alert-info">
+    The default colours are;
+  </p>
+
+  <div class="terminal-wrapper">
+    <app-terminal>
+      <span class="title">
+        Default Colours
+      </span>
+
+      <span class="code">
+        <pre class="code-command">
+$colors: (
+  "primary":               #546A76, <span class="colour-square" style="background: #546A76">&nbsp;</span>  // The colour used for the header bar and selected elements
+  "primary-text":          #fff,    <span class="colour-square" style="background: #fff">&nbsp;</span>  // The text colour in $primary elements
+  "cell-bg":               #fff,    <span class="colour-square" style="background: #fff">&nbsp;</span>  // The background colour for an unselected cell
+  "cell-color":            #484848, <span class="colour-square" style="background: #484848">&nbsp;</span>  // The text colour for an unselected cell
+  "cell-border-color":     #f0f0f0, <span class="colour-square" style="background: #f0f0f0">&nbsp;</span>  // The colour of cell borders
+  "bg-color":              #fafafa, <span class="colour-square" style="background: #fafafa">&nbsp;</span>  // The background colour for non-date elements
+  "disabled-cell-bg":      #f3f3f3, <span class="colour-square" style="background: #f3f3f3">&nbsp;</span>  // The background colour of disabled cells
+  "disabled-cell-color":   #909090, <span class="colour-square" style="background: #909090">&nbsp;</span>  // The text colour of disabled cells
+  "today-bg":              #fff,    <span class="colour-square" style="background: #fff">&nbsp;</span>  // The background colour of the cell for today
+  "today-color":           #54A76   <span class="colour-square" style="background: #546A76">&nbsp;</span>  // The text colour of the cell for today
+);</pre>
+      </span>
+    </app-terminal>
+  </div>
+</div>

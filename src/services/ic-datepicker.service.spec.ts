@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import * as Moment from 'moment';
+import moment from 'moment';
 
 import { IcDatepickerService } from './ic-datepicker.service';
 import { IcDatepickerOptions } from '../models/ic-datepicker-options';
@@ -19,7 +19,7 @@ describe('Service: IcDatepickerService', () => {
 
   it('should build a datepicker day (today)', inject([IcDatepickerService], (service: IcDatepickerService) => {
     let datepickerOptions = new IcDatepickerOptions({ displayFormat: 'L' }, service);
-    let day = Moment();
+    let day = moment();
     let datepickerDay = service.buildDatepickerDay(day, datepickerOptions);
 
     expect(datepickerDay.moment.isSame(day)).toBe(true);
@@ -30,7 +30,7 @@ describe('Service: IcDatepickerService', () => {
 
   it('should build a datepicker day (selected)', inject([IcDatepickerService], (service: IcDatepickerService) => {
     let datepickerOptions = new IcDatepickerOptions({ displayFormat: 'L' }, service);
-    let day = Moment('2017-01-01', 'YYYY-MM-DD');
+    let day = moment('2017-01-01', 'YYYY-MM-DD');
     let datepickerDay = service.buildDatepickerDay(day, datepickerOptions, day);
 
     expect(datepickerDay.isSelected).toBe(true);
@@ -38,23 +38,23 @@ describe('Service: IcDatepickerService', () => {
 
   it('should build a datepicker day (weekend)', inject([IcDatepickerService], (service: IcDatepickerService) => {
     let datepickerOptions = new IcDatepickerOptions({ displayFormat: 'L' }, service);
-    let day = Moment('2017-01-01', 'YYYY-MM-DD').day(7);
+    let day = moment('2017-01-01', 'YYYY-MM-DD').day(7);
     let datepickerDay = service.buildDatepickerDay(day, datepickerOptions);
 
     expect(datepickerDay.isWeekend).toBe(true);
   }));
 
   it('should build a datepicker day (disabled - minDate)', inject([IcDatepickerService], (service: IcDatepickerService) => {
-    let datepickerOptions = new IcDatepickerOptions({ minDate: Moment('2018-01-01', 'YYYY-MM-DD') }, service);
-    let day = Moment('2017-01-01', 'YYYY-MM-DD');
+    let datepickerOptions = new IcDatepickerOptions({ minDate: moment('2018-01-01', 'YYYY-MM-DD') }, service);
+    let day = moment('2017-01-01', 'YYYY-MM-DD');
     let datepickerDay = service.buildDatepickerDay(day, datepickerOptions);
 
     expect(datepickerDay.isDisabled).toBe(true);
   }));
 
   it('should build a datepicker day (disabled - maxDate)', inject([IcDatepickerService], (service: IcDatepickerService) => {
-    let datepickerOptions = new IcDatepickerOptions({ maxDate: Moment('2016-01-01', 'YYYY-MM-DD') }, service);
-    let day = Moment('2017-01-01', 'YYYY-MM-DD');
+    let datepickerOptions = new IcDatepickerOptions({ maxDate: moment('2016-01-01', 'YYYY-MM-DD') }, service);
+    let day = moment('2017-01-01', 'YYYY-MM-DD');
     let datepickerDay = service.buildDatepickerDay(day, datepickerOptions);
 
     expect(datepickerDay.isDisabled).toBe(true);
@@ -62,7 +62,7 @@ describe('Service: IcDatepickerService', () => {
 
   it('should build a calendar month', inject([IcDatepickerService], (service: IcDatepickerService) => {
     let datepickerOptions = new IcDatepickerOptions({}, service);
-    let month = Moment('2017-01-01', 'YYYY-MM-DD');
+    let month = moment('2017-01-01', 'YYYY-MM-DD');
     let days = service.buildCalendarMonth(month, datepickerOptions);
 
     expect(days.length).toBe(42);

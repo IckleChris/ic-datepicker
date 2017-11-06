@@ -1,0 +1,13 @@
+$colors: () !default;
+$colors: map-merge((
+  "primary":               #546A76,   // The colour used for the header bar and selected elements
+  "primary-text":          #fff,      // The text colour in $primary elements
+  "cell-bg":               #fff,      // The background colour for an unselected cell
+  "cell-color":            #484848,   // The text colour for an unselected cell
+  "cell-border-color":     #f0f0f0,   // The colour of cell borders
+  "bg-color":              #fafafa,   // The background colour for non-date elements
+  "disabled-cell-bg":      #f3f3f3,   // The background colour of disabled cells
+  "disabled-cell-color":   #909090,   // The text colour of disabled cells
+  "today-bg":              #fff,      // The background colour of the cell for today
+  "today-color":           #546A76    // The text colour of the cell for today
+), $colors);

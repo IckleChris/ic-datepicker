@@ -1,0 +1,21 @@
+<div class="terminal-window">
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <div class="button">&nbsp;</div>
+      <div class="button">&nbsp;</div>
+      <div class="button">&nbsp;</div>
+    </div>
+
+    <h2 class="terminal-title">
+      <code class="code-command">
+        <ng-content select=".title"></ng-content>
+      </code>
+    </h2>
+
+    <ng-content select=".icon"></ng-content>
+  </div>
+
+  <div class="terminal-body">
+    <ng-content select=".code"></ng-content>
+  </div>
+</div>

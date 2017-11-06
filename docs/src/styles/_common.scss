@@ -1,0 +1,14 @@
+@import "colors";
+
+.page-title-bar {
+  padding: 1.15rem 0;
+  margin: 0 0 1rem 0;
+  background: darken($dark, 15%);
+
+  .page-title {
+    font-size: 1.3rem;
+    color: $white;
+    font-weight: 600;
+    margin: 0;
+  }
+}

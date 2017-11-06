@@ -1,4 +1,4 @@
-import * as Moment from 'moment';
+import moment from 'moment';
 
 export interface IcDatepickerDay {
   classes?: string[];
@@ -8,5 +8,5 @@ export interface IcDatepickerDay {
   isSelected?: boolean;
   isToday?: boolean;
   isWeekend?: boolean;
-  moment: Moment.Moment;
+  moment: moment.Moment;
 }

@@ -1,0 +1,7 @@
+$colors: (
+  "primary": #64B6AC
+);
+
+@import "../theme-builder.mixin";
+
+@include theme-builder();

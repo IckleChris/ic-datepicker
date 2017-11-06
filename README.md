@@ -1,60 +1,72 @@
-# Ic Datepicker
-
-[Docs & Example](https://icklechris.github.io/ic-datepicker)
-
-**Warning:** This component is still in pre-release. Although the component should be stable, until v1 is released there is potential for API changes whilst things are finalised. To prevent issues, ensure your `package.json` file specifies a specific version (e.g. `"ic-datepicker": "0.0.5"`).
+# ic-datepicker
 
 ## Installation
 
-Install the component via NPM;
+To install this library, run:
 
-```
-npm install -S ic-datepicker
+```bash
+$ npm install ic-datepicker --save
 ```
 
-Import the `IcDatepickerModule` into your module;
+## Consuming your library
+
+Once you have published your library to npm, you can import your library in any Angular application by running:
+
+```bash
+$ npm install ic-datepicker
+```
+
+and then from your Angular `AppModule`:
 
 ```typescript
-// app.module.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { IcDatepickerModule } from 'ic-datepicker';
+import { AppComponent } from './app.component';
+
+// Import your library
+import { SampleModule } from 'ic-datepicker';
 
 @NgModule({
-  imports: [
-    IcDatepickerModule,
+  declarations: [
+    AppComponent
   ],
+  imports: [
+    BrowserModule,
+
+    // Specify your library as an import
+    LibraryModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
+export class AppModule { }
 ```
 
-## Usage
+Once your library is imported, you can use its components, directives and pipes in your Angular application:
 
-Use the `<ic-datepicker/>` element, optionally providing an `IcDatepickerOptionsInterface` instance containing overriding options ([see defaults](https://icklechris.github.io/ic-datepicker/options)).
-
-```typescript
-import { IcDatepickerOptionsInterface } from 'ic-datepicker';
-
-@Component({
-  selector: 'my-example-component',
-  template: `
-    <form [formGroup]="exampleForm">
-      <ic-datepicker formControlName="datepicker" options="datepickerOptions"></ic-datepicker>
-    </form>
-  `,
-  styles: ``
-})
-export class MyExampleComponent implements OnInit {
-  this.datepickerOptions: IcDatepickerOptionsInterface;
-  this.exampleForm: FormGroup;
-  
-  ngOnInit() {
-    this.datepickerOptions = {
-      position: 'top'
-    };
-  
-    this.exampleForm = new FormGroup({
-      datepicker: new FormControl()
-    });
-  }
-}
-
+```xml
+<!-- You can now use your library component in app.component.html -->
+<h1>
+  {{title}}
+</h1>
+<sampleComponent></sampleComponent>
 ```
+
+## Development
+
+To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
+
+```bash
+$ npm run build
+```
+
+To lint all `*.ts` files:
+
+```bash
+$ npm run lint
+```
+
+## License
+
+MIT © [Chris Brown](mailto:chris1990@live.co.uk)

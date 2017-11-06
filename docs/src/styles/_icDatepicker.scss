@@ -1,0 +1,9 @@
+@import "colors";
+
+$colors: (
+  "primary": $brand
+);
+
+@import "~ic-datepicker/styles/theme-builder.mixin";
+
+@include theme-builder();

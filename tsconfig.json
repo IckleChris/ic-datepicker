@@ -1,39 +1,21 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": true,
-    "stripInternal": true,
-    "experimentalDecorators": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "paths": {
-      "@angular/core": ["node_modules/@angular/core"],
-      "@angular/testing": ["node_modules/@angular/testing"],
-      "rxjs/*": ["node_modules/rxjs/*"]
-    },
     "allowSyntheticDefaultImports": true,
-    "rootDir": ".",
-    "outDir": "dist",
-    "sourceMap": true,
-    "inlineSources": true,
-    "target": "es5",
-    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "rootDir": "./src",
     "lib": [
-      "es2015", 
+      "es6",
       "dom"
+    ],
+    "skipLibCheck": true,
+    "types": [
+      "jasmine",
+      "node"
     ],
     "typeRoots": [
       "node_modules/@types"
     ]
-  },
-  "files": [
-    "index.ts",
-    "test.ts"
-  ],
-  "angularCompilerOptions": {
-    "strictMetadataEmit": true,
-    "skipTemplateCodegen": true
   }
 }
