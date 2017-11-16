@@ -56,6 +56,7 @@ export class ExampleComponent implements OnInit {
       customDayClasses: [],
       disableWeekends: false,
       displayFormat: 'L',
+      iconSet: 'svg',
       inputClasses: [],
       inputTemplate: 'bootstrap',
       maxDate: moment().add(6, 'month'),

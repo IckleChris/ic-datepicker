@@ -11,7 +11,7 @@ export class DatepickerConfigFormComponent implements OnInit, OnChanges {
   @Output() onConfigChanged = new EventEmitter();
 
   configForm: FormGroup;
-  displayFormatOptions: ['L', 'LL', 'DD/MM/YYYY', 'MM/DD/YYYY', 'YYYY-MM-DD'];
+  displayFormatOptions = ['L', 'LL', 'DD/MM/YYYY', 'MM/DD/YYYY', 'YYYY-MM-DD'];
   iconSets = [{
     value: 'svg',
     label: 'Default (SVG)'

@@ -49,6 +49,10 @@
     &.active {
       background: lighten($dark, 7.5%);
     }
+
+    &:hover {
+      background: lighten($dark, 4%);
+    }
   }
 }
 

@@ -26,7 +26,7 @@
           *ngFor="let option of options"
           [ngClass]="{ active: option.label === activeOption.label }"
           [routerLink]="['/options', option.label]"
-          class="btn btn-block btn-link sidebar-link"
+          class="btn btn-block sidebar-link"
         >
           {{ option.label }}
         </a>
