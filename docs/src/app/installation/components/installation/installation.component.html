@@ -74,7 +74,11 @@ class AppModule &#123; &#125;</pre>
 
         <span class="code">
           <pre class="code-command">
-&lt;ic-datepicker options="datepickerOptions"&gt;&lt;/ic-datepicker&gt;</pre>
+&lt;!-- Reactive Form --&gt;
+&lt;ic-datepicker formControlName="myReactiveModel" options="datepickerOptions"&gt;&lt;/ic-datepicker&gt;
+
+&lt;!-- ngModel --&gt;
+&lt;ic-datepicker [(ngModel)]="myNgModel"&gt;&lt;/ic-datepicker&gt;</pre>
         </span>
 
         <i class="fa fa-lg fa-code icon"></i>

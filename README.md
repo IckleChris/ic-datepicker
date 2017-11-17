@@ -10,6 +10,8 @@ Install the component via NPM;
 
 ```
 npm install -S ic-datepicker
+  (or)
+yarn add ic-datepicker
 ```
 
 Import the `IcDatepickerModule` into your module;
@@ -37,14 +39,19 @@ import { IcDatepickerOptionsInterface } from 'ic-datepicker';
   selector: 'my-example-component',
   template: `
     <form [formGroup]="exampleForm">
+      <!-- Reactive Form -->
       <ic-datepicker formControlName="datepicker" options="datepickerOptions"></ic-datepicker>
+      
+      <!-- ngModel -->
+      <ic-datepicker [(ngModel)]="modelDatepicker" options="datepickerOptions"></ic-datepicker>
     </form>
   `,
   styles: ``
 })
 export class MyExampleComponent implements OnInit {
-  this.datepickerOptions: IcDatepickerOptionsInterface;
-  this.exampleForm: FormGroup;
+  datepickerOptions: IcDatepickerOptionsInterface;
+  exampleForm: FormGroup;
+  modelDatepicker: any;
 
   ngOnInit() {
     this.datepickerOptions = {
