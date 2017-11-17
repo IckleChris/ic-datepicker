@@ -9,6 +9,7 @@ export * from './interfaces/ic-datepicker-icon';
 export * from './interfaces/ic-datepicker-options';
 export * from './interfaces/ic-datepicker-quick-option';
 export * from './interfaces/ic-datepicker-year';
+export * from './services/ic-datepicker.service';
 export * from './models/ic-datepicker-options';
 
 @NgModule({
