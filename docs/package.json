@@ -6,9 +6,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build -prod -aot",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "serve:dev": "ng serve -aot --preserve-symlinks",
+    "serve:prod": "ng serve -prod -aot --preserve-symlinks"
   },
   "private": true,
   "dependencies": {
