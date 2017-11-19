@@ -8,3 +8,4 @@ npm-debug.log
 dist
 coverage
 **/*.js
+!docs/dist/*.js
