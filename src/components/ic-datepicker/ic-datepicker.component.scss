@@ -43,6 +43,11 @@ $mobileBreakpoint: 480px;
     }
   }
 
+  .ic-datepicker-input,
+  .ic-datepicker-input[readonly] {
+    background-color: #fff;
+  }
+
   .cell {
     user-select: none;
     width: calc(100% / 7);
