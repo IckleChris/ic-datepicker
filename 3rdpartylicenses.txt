@@ -1,4 +1,4 @@
-ic-datepicker@0.1.0
+ic-datepicker@0.1.3
 MIT
 MIT
 
