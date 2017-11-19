@@ -2631,9 +2631,9 @@ https-proxy-agent@^1.0.0:
     debug "2"
     extend "3"
 
-ic-datepicker@*:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/ic-datepicker/-/ic-datepicker-0.1.0.tgz#b797b78dbffa026fc1c52c4e089581c81030c808"
+ic-datepicker@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/ic-datepicker/-/ic-datepicker-0.1.3.tgz#beae0b53bca15c7e4cbcb702f5021240322b531e"
 
 iconv-lite@0.4.19:
   version "0.4.19"
