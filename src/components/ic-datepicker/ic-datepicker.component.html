@@ -1,10 +1,5 @@
-<div class="ic-datepicker-container">
-  <div
-      [style.visibility]="datepickerIsOpen ? 'visible': 'hidden'"
-      class="ic-datepicker-underlay"
-  >
-    &nbsp;
-  </div>
+<div [class.ic-open]="datepickerIsOpen" class="ic-datepicker-container">
+  <div (click)="closeDatepicker()" class="ic-datepicker-underlay">&nbsp;</div>
 
   <!-- Datepicker toggle -->
   <div (click)="toggleDatepicker()">
