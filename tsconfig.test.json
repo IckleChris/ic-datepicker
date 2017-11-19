@@ -1,0 +1,16 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["dom", "es6"]
+  },
+  "exclude": [
+    "node_modules",
+    "docs",
+    "dist"
+  ]
+}

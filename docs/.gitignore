@@ -5,6 +5,7 @@
 /out-tsc
 
 !dist
+src/app/**/*.js
 
 # dependencies
 /node_modules
